@@ -1,0 +1,131 @@
+
+/*
+ * Variables
+ */
+ .road-segment {
+    /* Segment size */
+    /* --segment-y: calc(5 * var(--lod, 1)); */
+    --segment-y: calc(var(--road-length) / var(--sc));
+    --segment-height: calc(var(--segment-y) * 1lvh);
+    --lip-height: 2lvh;
+
+    --segment-top: calc(var(--lip-height) + (var(--segment-height) / 4 ));
+    --segment-center: calc(var(--lip-height) + (var(--segment-height) / 2 ));
+
+    /* Colours */
+    --tarmac: #292929;
+    --dark: #222;
+    --gutter: #DDD;
+    --line: #F7B500;
+}
+
+/*
+ * Base Styles
+ */
+.road-segment {
+    position: absolute;
+    bottom: 0; 
+    width: 100%;
+    height: calc(var(--segment-height) + var(--lip-height));
+
+    border-radius: 50% 50% 0 0 / 
+        var(--lip-height) var(--lip-height) 0 0;
+    backface-visibility: hidden;
+}
+
+/*
+ * Positioning Math 
+ */
+.road-segment {
+    /* Segment Z distance to camera */
+    --posZ: calc( var(--z) - var(--camZ) );
+    /* Screen X offset of top of segment */
+    --posX: calc( (var(--tX) - (var(--camX) * var(--posZ)) - var(--camX)) / var(--scale) );
+    /* X offset of bottom of segement relative to top */
+    --offX: calc( (var(--bX) - var(--tX) + var(--camX)) / var(--scale) );
+    /* Angle between top and bottom of segment */ 
+    --angle: atan( var(--offX) / var(--segment-y) );
+}
+
+/*
+ * Segment transformation
+ */
+.road-segment {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transform-origin: center var(--lip-height);
+    transform: 
+        translate3d(
+            calc(var(--posX) * 1lvh),
+            calc(var(--posZ) * (0lvh - var(--segment-height))),
+            0
+        )
+        skewX(var(--angle, 0));
+}
+
+/*
+ * Road theme/color
+ */
+.road-segment {
+    --edge-lines: 
+        linear-gradient(90deg, 
+            transparent 2%, 
+            var(--gutter) 2% 5%, 
+            transparent 5% 95%, 
+            var(--gutter) 95% 98%, 
+            transparent 98%
+        );
+    --lane-lines:
+        linear-gradient(
+            transparent 25%,
+            var(--line) 25% 75%,
+            transparent 75%
+        );
+    --road-surface:
+        linear-gradient(
+            var(--tarmac) var(--segment-center),
+            var(--dark) var(--segment-center)
+        ); 
+
+    background: 
+        var(--edge-lines), 
+        var(--lane-lines) 50% var(--lip-height) / 2% var(--segment-height) repeat-y, 
+        var(--road-surface);
+}
+
+.start {
+    --checkered: 
+        conic-gradient(
+            black 90deg,
+            white 90deg 180deg,
+            black 180deg 270deg,
+            white 270deg
+        );
+    
+    background:
+        var(--checkered) left var(--segment-center) / 10% 10% repeat-x,
+        var(--edge-lines),
+        var(--road-surface);
+}
+
+.road-segment:first-of-type::before,
+.road-segment:last-of-type::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    height: calc(var(--segment-height) * var(--posZ));
+    width: 100%;
+
+    background: 
+        var(--edge-lines),
+        var(--lane-lines) 49% top / 2% var(--segment-height) repeat-y,
+        linear-gradient(
+            var(--tarmac) 50%,
+            var(--dark) 50%
+        ) left top / 100% var(--segment-height);
+}
+.road-segment:last-of-type::before {
+    top: unset; 
+    bottom: calc(100% - var(--lip-height));
+    height: calc(var(--segment-height) * (var(--sc) - var(--posZ)));
+}
