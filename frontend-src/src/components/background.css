@@ -1,0 +1,28 @@
+
+/*
+ * Sky/ground background
+ */
+ .background {
+    --ground-light: #EDC9AF;
+    --ground-dark: #E1A95F;
+    --sky-light: #B2FFFF;
+    --sky-dark: #87CEFA;
+
+    position: fixed;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 100lvh;
+
+    background:
+        linear-gradient(
+            var(--sky-dark), var(--sky-light)
+        ) top / 100% calc(100% - var(--h) * 1%) no-repeat,
+        linear-gradient(
+            var(--ground-light), var(--ground-dark)
+        ) 100% calc(100% - var(--h) * 1%) no-repeat;
+}
+
+@supports (-moz-appearance: none) {
+    .background { bottom: unset; top: 0; }
+}
