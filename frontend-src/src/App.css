@@ -7,3 +7,8 @@
   width: 100%;
   height: 100lvh;
 }
+
+.scroller {
+  width:100%;
+  height: var(--scroll-height, 5000px);
+}
