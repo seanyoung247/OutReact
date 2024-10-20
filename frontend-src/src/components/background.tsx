@@ -11,6 +11,6 @@ export const Background = ({horizon, children}:Props) => (
         className="background"
         style={{'--h': horizon}}
     >
-        { children ?? children }
+        { children }
     </div>
 )
