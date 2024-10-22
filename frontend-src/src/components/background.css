@@ -15,9 +15,10 @@
     height: 100lvh;
 
     background:
-        linear-gradient(
+        var(--img) var(--x) top / auto calc(100% - var(--h) * 1%) repeat-x,
+        /* linear-gradient(
             var(--sky-dark), var(--sky-light)
-        ) top / 100% calc(100% - var(--h) * 1%) no-repeat,
+        ) top / 100% calc(100% - var(--h) * 1%) no-repeat, */
         linear-gradient(
             var(--ground-light), var(--ground-dark)
         ) 100% calc(100% - var(--h) * 1%) no-repeat;
