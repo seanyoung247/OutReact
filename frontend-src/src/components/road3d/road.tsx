@@ -1,34 +1,29 @@
-import { useMemo } from 'react'
-import { RoadSegmentDescriptor } from '../../testRoad'
-import { wrap } from '../../utilities/misc'
-import { buildRoad } from './buildroad'
-import { CSSFeatures } from '../../utilities/css'
+
+import { RoadSegmentDescriptor } from "../../testRoad"
 
 import './road.css'
 
-type RoadProps = {
+type Props = {
     road: RoadSegmentDescriptor[],
-    camZ: number
+    length: number, 
+    camZ: number,
 }
 
-export const Road = ({road, camZ}:RoadProps) => {
-    const baseSeg = Math.max(Math.floor(camZ), 0)
-    const segments = useMemo(
-        () => buildRoad(road, baseSeg, 20),
-        [road, baseSeg]
-    )
+export const Road = ({road, length, camZ}:Props) => {
+    const segments = new Array(length).fill(0).map((_,i) => (
+        <div className="road-segment"
+            style={{ '--i': i }}
+        />
+    ))
+
+    console.log(road, camZ)
 
     return (
-        <div className="plane"
-            style={{
-                 ...(!CSSFeatures.timeline && {'--camZ': camZ}), 
-                // '--camZ': camZ,
-                '--bS': baseSeg, 
-                '--bX': road[wrap(0, baseSeg, road.length)].curve,
-                '--sc': 20,
-                '--length': road.length
-            }}>
-            { segments }
-        </div>
+        <>
+            {segments}
+        </>
+        // <div className="road">
+        //     {segments}
+        // </div>
     )
 }
