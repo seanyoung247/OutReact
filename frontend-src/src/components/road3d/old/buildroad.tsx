@@ -1,6 +1,6 @@
 import { RoadSegment } from './roadsegment'
-import { RoadSegmentDescriptor } from '../../testRoad'
-import { wrap } from '../../utilities/misc'
+import { RoadSegmentDescriptor } from '../../../testRoad'
+import { wrap } from '../../../utilities/misc'
 
 
 export const buildRoad = (road: RoadSegmentDescriptor[], first: number, length: number) => {

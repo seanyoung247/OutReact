@@ -1,6 +1,6 @@
 
-import { classList } from '../../utilities/css'
-import { RoadSegmentDescriptor } from '../../testRoad'
+import { classList } from '../../../utilities/css'
+import { RoadSegmentDescriptor } from '../../../testRoad'
 
 import './roadsegment.css'
 

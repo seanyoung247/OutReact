@@ -1,0 +1,61 @@
+/*
+ * Variables
+ */
+ .plane {
+    --scale: 4;
+    /* road size */
+    /* --road-length: 100lvh; */
+    --road-width: calc(100lvh / var(--scale));
+}
+
+@media screen and (orientation: landscape) {
+    .plane {
+        --road-width: calc(150lvh / var(--scale));
+    }
+}
+
+/*
+ * Base Styles
+ */
+.plane {
+    position: absolute;
+    height: calc(var(--road-length) * 1lvh);
+    width: var(--road-width);
+    left: 50%;
+    bottom: 0;
+    transform-style: preserve-3d;
+    transform-origin: center bottom;
+
+    transform: 
+        scale(var(--scale))
+        translateX(calc(-50% / var(--scale)))
+        rotateX(90deg);
+}
+
+/*
+ * Positioning Math 
+ */
+.plane {
+    --camZ: 0;
+    /* Base segment x offset */
+    --offZ: calc( var(--camZ) - var(--bS) );
+    --camX: calc( var(--offZ) * var(--bX) );
+    will-change: var(--camZ);
+}
+
+@supports (animation-timeline: scroll()) {
+    @property --camZ {
+        syntax: "<number>";
+        inherits: true;
+        initial-value: 0;
+    }
+
+    @keyframes travel {
+        to { --camZ: var(--length); }
+    }
+
+    .plane {
+        animation: travel linear;
+        animation-timeline: scroll(root block);
+    }
+}
