@@ -7,8 +7,6 @@
     height: var(--h);
     touch-action: pan-y;
 
-    --road-length: 100;
-
     --seed: 1.008;
     
     --magic-number: calc(var(--seed) + ((var(--perspective) - 1) / 100));

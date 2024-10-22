@@ -1,24 +1,41 @@
 
-.road {
-    height: 100%;
-    transform-style: preserve-3d;
-    perspective: inherit;
+/*
+ * Variables
+ */
+.road-segment {
+    --road-length: 100;
+    /* Segment Size */
+    --segment-y: calc(var(--road-length) / var(--sc));
+    --segment-height: calc(var(--segment-y) * 1lvh);
+    --lip-height: 2lvh;
+    /* Segment Positioning */
+    --segment-top: calc(var(--lip-height) + (var(--segment-height) / 4 ));
+    --segment-center: calc(var(--lip-height) + (var(--segment-height) / 2 ));
 }
 
-
+/*
+ * Base styles
+ */
 .road-segment {
     position: absolute;
     bottom: 0;
     
     width: 100%;
-    height: 5lvh;
-    background: red;
-
-    transform:
-        rotateX(90deg)
-        translateY(calc(var(--i) * -5lvh));
+    height: calc(var(--segment-height) + var(--lip-height));
 
     transform-style: preserve-3d;
     transform-origin: bottom;
 }
 
+/*
+ * Positioning Math
+ */
+
+/*
+ * Positioning
+ */
+.road-segment {
+    transform:
+        rotateX(90deg)
+        translateY(calc(var(--i) * (0lvh - var(--segment-height))));
+}
