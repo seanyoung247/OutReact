@@ -5,6 +5,7 @@
 .road-segment {
     --road-length: 100;
     /* Segment Size */
+    --segment-width: 150lvh;
     --segment-y: calc(var(--road-length) / var(--sc));
     --segment-height: calc(var(--segment-y) * 1lvh);
     --lip-height: 2lvh;
@@ -12,15 +13,21 @@
     --segment-top: calc(var(--lip-height) + (var(--segment-height) / 4 ));
     --segment-center: calc(var(--lip-height) + (var(--segment-height) / 2 ));
 }
+/* @media screen and (orientation: landscape) {
+    .road-segment {
+        --segment-width: 150lvh;
+    }
+} */
 
 /*
  * Base styles
  */
 .road-segment {
     position: absolute;
+    left: 50%;
     bottom: 0;
     
-    width: 100%;
+    width: var(--segment-width);
     height: calc(var(--segment-height) + var(--lip-height));
 
     transform-style: preserve-3d;
@@ -37,5 +44,9 @@
 .road-segment {
     transform:
         rotateX(90deg)
-        translateY(calc(var(--i) * (0lvh - var(--segment-height))));
+        translate3d(
+            -50%,
+            calc(var(--i) * (0lvh - var(--segment-height))),
+            0
+        );
 }

@@ -5,8 +5,8 @@
     --dark: #222;
     --gutter: #DDD;
     --line: #F7B500;
+    
     /* Textures */
-
     --edge-lines: 
         linear-gradient(90deg, 
             transparent 2%, 
