@@ -5,7 +5,7 @@
     --dark: #222;
     --gutter: #DDD;
     --line: #F7B500;
-    
+
     /* Textures */
     --edge-lines: 
         linear-gradient(90deg, 
@@ -26,6 +26,10 @@
             var(--tarmac) var(--segment-center),
             var(--dark) var(--segment-center)
         ); 
+
+    /* Makes the lip rounded so the join hides underneath following segments even on curves */
+    border-radius: 50% 50% 0 0 / 
+        var(--lip-height) var(--lip-height) 0 0;
 
     /* Basic background */
     background: 
