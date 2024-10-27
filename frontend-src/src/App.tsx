@@ -4,8 +4,6 @@ import { View3D } from './components/view3d'
 import { Road } from './components/road3d/road'
 
 import { useScrollState } from './hooks/scroll'
-// import { useState } from 'react'
-// import { useAnimationFrame } from './hooks/frame'
 import { useRef } from 'react'
 
 import { roadSegments } from './testRoad'
@@ -17,11 +15,6 @@ import './App.css'
 function App() {
     const scroll = useScrollState()
     const camZ = (scroll.progress.y / 100) * roadSegments.length
-    // const [camZ, setCamZ] = useState(0)
-
-    // useAnimationFrame((time) => {
-    //     setCamZ(camZ + (0.008 * time))
-    // })
 
     const baseSeg = Math.max(Math.floor(camZ), 0)
     const xPos = useRef({camX:0, baseSeg})
