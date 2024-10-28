@@ -35,13 +35,14 @@ const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
 
 export const Road = ({road, length, camZ}:Props) => {
     const segments = buildRoad(Math.floor(camZ), length, road)
-    // const baseSeg = road[wrap(0, Math.floor(camZ), road.length)]
 
     return (
         <div className="road"
             style={{
                 '--sc': 20,
                 '--camZ': camZ,
+                '--bZ': Math.floor(camZ),
+                '--bX': road[wrap(0, Math.floor(camZ), road.length)].curve
             }}
         >
             { segments }

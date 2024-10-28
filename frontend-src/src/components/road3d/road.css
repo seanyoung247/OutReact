@@ -1,6 +1,9 @@
 
 .road {
     --road-length: 100;
+    --offZ: calc( var(--camZ) - var(--bZ) );
+    --camX: calc( var(--offZ) * var(--bX) );
+
     height: 100%;
     width: 100%;
     transform-style: preserve-3d;
@@ -37,8 +40,10 @@
      */
     /* Z (depth) offset of segment relative to screen */
     --offZ: calc( var(--z) - var(--camZ) );
+    /* Segment X position */
+    --posX: calc( var(--bX) - (var(--camX) * var(--offZ)) );
     /* X offset of bottom of segement relative to top */
-    --offX: calc( var(--bX) - var(--tX) );
+    --offX: calc( var(--bX) - var(--tX) + var(--camX));
     /* Angle between top and bottom of segment */ 
     --skew: atan( var(--offX) / var(--segment-y) );
 
@@ -48,7 +53,8 @@
     transform:
         rotateX(90deg)
         translate3d(
-            calc(-50% + (var(--bX) * 1lvh)),
+            /* calc(-50% + (var(--bX) * 1lvh)), */
+            calc(-50% + (var(--posX) * 1lvh)),
             calc(var(--offZ) * (0lvh - var(--segment-height))),
             0
         )
