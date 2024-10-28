@@ -2,6 +2,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useAnimationFrame } from './frame'
 
+//
+// Types
+//
 export type point = {
     x: number, y: number
 }
@@ -17,6 +20,9 @@ export type ScrollData = {
 
 export type ScrollCallback = (s:ScrollData) => void
 
+//
+// Internal utilities
+//
 const defaultScrollData = () => ({
     scrolling: false, 
     start: {x:0, y:0},
@@ -54,12 +60,23 @@ const getScrollData = (last: ScrollData): ScrollData => {
 
 const options = ({ passive: true } as unknown) as EventListenerOptions
 
+
+//
+// Hooks
+//
+
+/*
+ * Updates component with current scroll data
+ */
 export const useScrollState = () => {
     const [scroll, setScroll] = useState<ScrollData>(defaultScrollData())
     useScrollAnimation(setScroll)
     return scroll
 }
 
+/*
+ * Runs a callback function as the window scroll state changes
+ */
 export const useScrollPosition = (effect: ScrollCallback) => {
     const scrollData = useRef<ScrollData>(defaultScrollData())
 
@@ -78,6 +95,9 @@ export const useScrollPosition = (effect: ScrollCallback) => {
     }, [effect])
 }
 
+/*
+ * Runs a callback function when if scroll data has changed since the last animation frame
+ */
 export const useScrollAnimation = (effect: ScrollCallback) => {
     const scrollData = useRef<ScrollData>(defaultScrollData())
 
