@@ -10,6 +10,7 @@ import { roadSegments } from './testRoad'
 import { wrap } from './utilities/misc'
 
 import './App.css'
+import { ScrollManager } from './components/scrollmanager'
 
 
 function App() {
@@ -27,19 +28,13 @@ function App() {
     }
 
     return (
-        <>
-            <div className='scroller' 
-                style={{
-                    '--scroll-height': '10000px'
-                }}
-            />
-
+        <ScrollManager scrollHeight='10000px' length={roadSegments.length}>
             <Background horizon={35} xPos={xPos.current.camX}>
                 <View3D width='100%' height='100lvh' perspective={4} horizon={35}>
                     <Road road={roadSegments} length={20} camZ={camZ}/>
                 </View3D>
             </Background>
-        </>
+        </ScrollManager>
     )
 }
 
