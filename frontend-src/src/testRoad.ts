@@ -1,7 +1,7 @@
 
 import { RoadSegmentDescriptor } from "./components/road3d/utils";
 
-export const roadSegments:RoadSegmentDescriptor[] = [
+export const roadSegments:RoadSegmentDescriptor = [
     { curve: 0 },
     { curve: 0 },
     { curve: 0 },
@@ -134,8 +134,3 @@ export const roadSegments:RoadSegmentDescriptor[] = [
     { curve: 1.5 },
     { curve: 0 }
 ]
-
-export const formatRoad = (road:RoadSegmentDescriptor[]): {x:number}[] => {
-    let acc = 0;
-    return road.map((seg) => ({x: acc += seg.curve}))
-}
