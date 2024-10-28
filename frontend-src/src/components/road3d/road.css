@@ -1,16 +1,15 @@
 
 .road {
     --road-length: 100;
-
     height: 100%;
     width: 100%;
     transform-style: preserve-3d;
 }
 
-/*
- * Variables
- */
 .road-segment {
+    /*
+     * Variables
+     */
     /* Segment Size */
     --segment-width: 150lvh;
     --segment-y: calc(var(--road-length) / var(--sc));
@@ -19,12 +18,10 @@
     /* Segment Positioning */
     --segment-top: calc(var(--lip-height) + (var(--segment-height) / 4 ));
     --segment-center: calc(var(--lip-height) + (var(--segment-height) / 2 ));
-}
 
-/*
- * Base styles
- */
-.road-segment {
+    /*
+     * Base styles
+     */
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -34,24 +31,20 @@
 
     transform-style: preserve-3d;
     transform-origin: center bottom;
-}
 
-/*
- * Positioning Math
- */
-.road-segment {
-    /* Z (depth) offest of segment relative to screen */
+    /*
+     * Positioning Math
+     */
+    /* Z (depth) offset of segment relative to screen */
     --offZ: calc( var(--z) - var(--camZ) );
     /* X offset of bottom of segement relative to top */
-    --offX: calc( (var(--bX) - var(--tX)) );
+    --offX: calc( var(--bX) - var(--tX) );
     /* Angle between top and bottom of segment */ 
     --skew: atan( var(--offX) / var(--segment-y) );
-}
 
-/*
- * Positioning
- */
-.road-segment {
+    /*
+     * Positioning
+     */
     transform:
         rotateX(90deg)
         translate3d(
