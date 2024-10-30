@@ -1,28 +1,36 @@
 
+import { RoadSegmentDescriptor } from './road3d/utils'
+import { createContext } from 'react'
 import { useScrollState } from '../hooks/scroll'
+import { useRef } from 'react'
+import { wrap } from '../utilities/misc'
 
 type Props = {
-    scrollHeight: string,   // How long the scroll region should be
-    length: number,         // Discrete animation length
+    scrollHeight: string,
+    road: RoadSegmentDescriptor,
     children?: React.ReactNode
 }
 
-export const ScrollManager = ({scrollHeight, length, children}:Props) => {
+export const ScrollContext = createContext({camZ:0,camX:0})
+
+export const ScrollManager = ({scrollHeight, road, children}:Props) => {
 
     const scroll = useScrollState()
-    const position = (scroll.progress.y / 100) * length
+    const camZ = (scroll.progress.y / 100) * road.length
+    const baseSeg = Math.max(Math.floor(camZ), 0)
+    const xPos = useRef({camX:0, baseSeg})
 
-    console.log(position)
+    if (xPos.current.baseSeg !== baseSeg) {
+        xPos.current.camX += (
+            road[wrap(0, baseSeg, road.length)].curve *
+            Math.sign(scroll.delta.y)
+        )
+    }
 
     return (
-        <>
-            <div className="scroller"
-                style={{
-                    '--scroll-height': scrollHeight
-                }}
-            />
-
+        <ScrollContext.Provider value={{camZ, camX:xPos.current.camX}}>
+            <div style={{'height': scrollHeight}} />
             { children }
-        </>
+        </ScrollContext.Provider>
     )
 }

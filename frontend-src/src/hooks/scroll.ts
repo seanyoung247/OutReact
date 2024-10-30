@@ -5,17 +5,17 @@ import { useAnimationFrame } from './frame'
 //
 // Types
 //
-export type point = {
+export type Point = {
     x: number, y: number
 }
 
 export type ScrollData = {
     scrolling: boolean | number | string | unknown,
-    start: point,
-    current: point,
-    previous: point,
-    progress: point,
-    delta: point,
+    start: Point,
+    current: Point,
+    previous: Point,
+    progress: Point,
+    delta: Point,
 }
 
 export type ScrollCallback = (s:ScrollData) => void
@@ -23,7 +23,7 @@ export type ScrollCallback = (s:ScrollData) => void
 //
 // Internal utilities
 //
-const defaultScrollData = () => ({
+const defaultScrollData = (): ScrollData => ({
     scrolling: false, 
     start: {x:0, y:0},
     current: {x:0, y:0},
@@ -32,10 +32,10 @@ const defaultScrollData = () => ({
     delta: {x:0, y:0}
 })
 
-const scrollStateChanged = (last:ScrollData, delta:point):boolean => (
+const scrollStateChanged = (last:ScrollData, delta:Point):boolean => (
     !last.scrolling ||
-    Math.sign(last.delta.x) !== Math.sign(delta.x) ||
-    Math.sign(last.delta.y) !== Math.sign(delta.y)
+        Math.sign(last.delta.x) !== Math.sign(delta.x) ||
+        Math.sign(last.delta.y) !== Math.sign(delta.y)
 )
 
 const getScrollData = (last: ScrollData): ScrollData => {
@@ -60,11 +60,9 @@ const getScrollData = (last: ScrollData): ScrollData => {
 
 const options = ({ passive: true } as unknown) as EventListenerOptions
 
-
 //
 // Hooks
 //
-
 /*
  * Updates component with current scroll data
  */

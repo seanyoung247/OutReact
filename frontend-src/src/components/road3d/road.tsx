@@ -1,5 +1,7 @@
 
-import {  RoadSegmentDescriptor } from "./utils"
+import { useContext } from 'react'
+import { RoadSegmentDescriptor } from "./utils"
+import { ScrollContext } from '../scrollmanager'
 
 import { wrap } from '../../utilities/misc'
 
@@ -8,8 +10,7 @@ import './road-texture.css'
 
 type Props = {
     road: RoadSegmentDescriptor,
-    length: number, 
-    camZ: number,
+    length: number,
 }
 
 const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
@@ -19,7 +20,7 @@ const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
     for (let z = start; z < start + length; z++) {
         const segment = road[wrap(0, z, road.length)]
         segments.push(
-            <div key={z} className="road-segment"
+            <div key={z - start} className="road-segment"
                 style={{
                     '--z': z,
                     '--bX': baseX,
@@ -33,7 +34,8 @@ const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
     return segments
 }
 
-export const Road = ({road, length, camZ}:Props) => {
+export const Road = ({road, length}:Props) => {
+    const camZ = useContext(ScrollContext).camZ
     const segments = buildRoad(Math.floor(camZ), length, road)
 
     return (
