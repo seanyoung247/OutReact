@@ -13,30 +13,37 @@ type Props = {
     length: number,
 }
 
-const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
+const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor, keyframes:any) => {
     const segments = []
-    let topX = 0, baseX = 0
+    // let topX = 0, baseX = 0
 
-    for (let z = start; z < start + length; z++) {
-        const segment = road[wrap(0, z, road.length)]
+    // for (let z = start; z < start + length; z++) {
+    //     const segment = road[wrap(0, z, road.length)]
+    //     segments.push(
+    //         <div key={z - start} className="road-segment"
+    //             style={{
+    //                 '--z': z,
+    //                 '--bX': baseX,
+    //                 '--tX': (baseX += topX),
+    //             }}
+    //         />
+    //     )
+    //     topX += segment.curve
+    // }
+    for (let i = 0; i < length; i++) {
         segments.push(
-            <div key={z - start} className="road-segment"
-                style={{
-                    '--z': z,
-                    '--bX': baseX,
-                    '--tX': (baseX += topX),
-                }}
+            <div key={i} className='road-segment'
+                style={keyframes[i][start]}
             />
         )
-        topX += segment.curve
     }
 
     return segments
 }
 
 export const Road = ({road, length}:Props) => {
-    const camZ = useContext(ScrollContext).camZ
-    const segments = buildRoad(Math.floor(camZ), length, road)
+    const {camZ, keyframes} = useContext(ScrollContext)
+    const segments = buildRoad(Math.floor(camZ), length, road, keyframes)
 
     return (
         <div className="road"

@@ -11,14 +11,14 @@ type Props = {
 }
 
 export const Background = ({horizon, children}:Props) => {
-    const camX = useContext(ScrollContext).camX
+    const camX = -(useContext(ScrollContext).camX)
 
     return (
         <div
             className="background"
             style={{
                 '--h': horizon,
-                '--x': `-${camX}px`,
+                '--x': `${camX}px`,
                 '--img': `url(${Img})`,
             }}
         >
