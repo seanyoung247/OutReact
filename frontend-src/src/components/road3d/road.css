@@ -56,7 +56,6 @@
     transform:
         rotateX(90deg)
         translate3d(
-            /* calc(-50% + (var(--bX) * 1lvh)), */
             calc(-50% + (var(--posX) * 1lvh)),
             calc(var(--offZ) * (0lvh - var(--segment-height))),
             0

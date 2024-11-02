@@ -21,34 +21,11 @@ export type SegmentPosition = {
 export type ScrollStatus = {
     camZ: number,
     camX: number,
-    // keyframes: SegmentPosition[][]
 }
 const defaultScrollStatus:ScrollStatus = {
-    camZ:0, camX:0, 
-    // keyframes:[] as SegmentPosition[][]
+    camZ:0, camX:0,
 }
 export const ScrollContext = createContext(defaultScrollStatus)
-
-// const AnimateRoad = (road:RoadSegmentDescriptor) => {
-//     const animations:SegmentPosition[][] = [...new Array(20)].map(()=>[])
-
-//     for (let z = 0; z < (road.length + 20); z++) {
-//         let topX = 0, baseX = 0
-//         for (let seg = 0; seg < 20; seg++) {
-//             const i = (seg + z) % road.length
-//             const segment = road[i]
-//             animations[seg].push({
-//                 '--z': z + seg, 
-//                 '--bX': baseX, 
-//                 '--tX': (baseX += topX),
-//                 '--bC': segment.curve
-//             })
-//             topX += segment.curve
-//         }
-//     }
-
-//     return animations
-// }
 
 export const ScrollManager = ({scrollHeight, road, children}:Props) => {
 
@@ -63,10 +40,8 @@ export const ScrollManager = ({scrollHeight, road, children}:Props) => {
             Math.sign(scroll.delta.y)
         )
     }
-    // const keyframes = AnimateRoad(road)
 
     return (
-        // <ScrollContext.Provider value={{camZ, camX:xPos.current.camX, keyframes}}>
         <ScrollContext.Provider value={{camZ, camX:xPos.current.camX}}>
             <div style={{'height': scrollHeight}} />
             { children }
