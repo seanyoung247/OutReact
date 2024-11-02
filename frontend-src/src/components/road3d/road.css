@@ -1,12 +1,15 @@
 
 .road {
     --road-length: 100;
-    --offZ: calc( var(--camZ) - var(--bZ) );
-    --camX: calc( var(--offZ) * var(--bX) );
+    --offZ: calc( var(--camZ) - var(--z, 0) );
+    --camX: calc( var(--offZ) * var(--bC, 0) );
 
     height: 100%;
     width: 100%;
     transform-style: preserve-3d;
+
+    animation: travel linear;
+    animation-timeline: scroll(root block);
 }
 
 .road-segment {
