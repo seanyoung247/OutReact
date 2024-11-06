@@ -1,5 +1,6 @@
 
 .road {
+    --scale: 4;
     --road-length: 100;
     --offZ: calc( var(--camZ) - var(--z, 0) );
     --camX: calc( var(--offZ) * var(--bC, 0) );
@@ -17,7 +18,7 @@
      * Variables
      */
     /* Segment Size */
-    --segment-width: 150lvh;
+    --segment-width: calc(150lvh / var(--scale));
     --segment-y: calc(var(--road-length) / var(--sc));
     --segment-height: calc(var(--segment-y) * 1lvh);
     --lip-height: 2lvh;
@@ -38,27 +39,40 @@
     transform-style: preserve-3d;
     transform-origin: center bottom;
 
+    /* Gives segments a rounded lip to hide joins */
+    border-radius: 50% 50% 0 0 / 
+        var(--lip-height) var(--lip-height) 0 0;
+
     /*
      * Positioning Math
      */
     /* Z (depth) offset of segment relative to screen */
     --offZ: calc( var(--z) - var(--camZ) );
     /* Segment X position */
-    --posX: calc( var(--bX) - (var(--camX) * var(--offZ)) );
+    --posX: calc( (var(--bX) - (var(--camX) * var(--offZ))) / var(--scale) );
     /* X offset of bottom of segement relative to top */
-    --offX: calc( var(--bX) - var(--tX) + var(--camX));
+    --offX: calc( (var(--bX) - var(--tX) + var(--camX)) / var(--scale));
     /* Angle between top and bottom of segment */ 
     --skew: atan( var(--offX) / var(--segment-y) );
 
     /*
      * Positioning
      */
+    will-change: transform;
     transform:
+        scale(var(--scale))
         rotateX(90deg)
         translate3d(
-            calc(-50% + (var(--posX) * 1lvh)),
+            calc((-50% / var(--scale)) + (var(--posX) * 1lvh)),
             calc(var(--offZ) * (0lvh - var(--segment-height))),
             0
         )
         skew(var(--skew));
+}
+
+.road-segment {
+    background-color: #292929;
+    background: 
+        var(--lip) left top/100% var(--lip-height) no-repeat,
+        #292929 var(--tex) left var(--lip-height)/100% var(--segment-height);
 }
