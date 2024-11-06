@@ -7,26 +7,57 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="road tiles.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.3749716"
+     inkscape:cx="404.37199"
+     inkscape:cy="312.00645"
+     inkscape:window-width="1901"
+     inkscape:window-height="1217"
+     inkscape:window-x="1709"
+     inkscape:window-y="75"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1" />
   <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#222223;fill-opacity:1;stroke-width:1.38749;stroke-linecap:round;stroke-dashoffset:8.50394;paint-order:stroke markers fill"
+       id="rect1-5"
+       width="119.5676"
+       height="44.45784"
+       x="45.169987"
+       y="107.52106"
+       inkscape:export-filename="../frontend-src/src/assets/road.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
        style="fill:#292929;stroke-width:1.13288;stroke-linecap:round;stroke-dashoffset:8.50394;paint-order:stroke markers fill;fill-opacity:1"
        id="rect1"
        width="119.5676"
        height="29.638561"
        x="45.169983"
-       y="92.701782" />
-    <rect
-       style="fill:#222223;stroke-width:1.13288;stroke-linecap:round;stroke-dashoffset:8.50394;paint-order:stroke markers fill;fill-opacity:1"
-       id="rect1-5"
-       width="119.5676"
-       height="29.638561"
-       x="45.169987"
-       y="122.34035" />
+       y="92.701782"
+       inkscape:export-filename="../frontend-src/src/assets/road.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
        style="fill:#dddddd;fill-opacity:1;stroke-width:1.14674;stroke-linecap:round;stroke-dashoffset:8.50394;paint-order:stroke markers fill"
        id="rect2"
@@ -54,7 +85,10 @@
        width="119.5676"
        height="29.638561"
        x="45.169979"
-       y="33.424652" />
+       y="33.424652"
+       inkscape:export-filename="road-lip.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
        style="fill:#dddddd;fill-opacity:1;stroke-width:0.810868;stroke-linecap:round;stroke-dashoffset:8.50394;paint-order:stroke markers fill"
        id="rect2-6"
