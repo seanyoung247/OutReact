@@ -1,10 +1,17 @@
 
-import { useContext } from 'react'
+import { useContext, useMemo } from 'react'
 import { RoadSegmentDescriptor } from "./utils"
 import { ScrollContext } from '../scrollmanager'
 
 import './road.css'
-import './road-texture.css'
+// import './road-texture.css'
+import { wrap } from '../../utilities/misc'
+
+import roadTex from '../../assets/road.svg'
+import roadLip from '../../assets/road-lip.svg'
+
+// import roadTex from '../../assets/road.png'
+// import roadLip from '../../assets/road.png'
 
 type Props = {
     road: RoadSegmentDescriptor,
@@ -16,7 +23,7 @@ const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
     let topX = 0, baseX = 0
 
     for (let z = start; z < start + length; z++) {
-        const segment = road[z % road.length]
+        const segment = road[wrap(0, z, road.length)]
         segments.push(
             <div key={z - start} className="road-segment"
                 style={{
@@ -34,17 +41,22 @@ const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
 
 export const Road = ({road, length}:Props) => {
     const {camZ} = useContext(ScrollContext)
-    const z = Math.floor(camZ)
-    const segments = buildRoad(z, length, road)
-
+    const z = wrap(0, Math.floor(camZ), road.length)
+    const segments = useMemo(
+        () => buildRoad(z, length, road),
+        [road, length, z]
+    )
+    
     return (
         <div className="road" 
             style={{
                 '--sc': length,
                 '--length': road.length,
-                '--camZ': camZ,
+                '--camZ': wrap(0, camZ, road.length),
                 '--z': z,
-                '--bC': road[z % road.length].curve
+                '--bC': road[z].curve,
+                '--tex': `url(${roadTex})`,
+                '--lip': `url(${roadLip})`
             }}
         >
             { segments }
