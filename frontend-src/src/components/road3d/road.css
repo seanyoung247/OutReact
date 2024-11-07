@@ -8,9 +8,10 @@
     height: 100%;
     width: 100%;
     transform-style: preserve-3d;
-
+    transform: translate3d(0, 0, 0);
+/* 
     animation: travel linear;
-    animation-timeline: scroll(root block);
+    animation-timeline: scroll(root block); */
 }
 
 .road-segment {
@@ -23,7 +24,7 @@
     --segment-height: calc(var(--segment-y) * 1lvh);
     --lip-height: 2lvh;
     /* Segment Positioning */
-    --segment-top: calc(var(--lip-height) + (var(--segment-height) / 4 ));
+    /* --segment-top: calc(var(--lip-height) + (var(--segment-height) / 4 )); */
     --segment-center: calc(var(--lip-height) + (var(--segment-height) / 2 ));
 
     /*
@@ -35,6 +36,7 @@
     
     width: var(--segment-width);
     height: calc(var(--segment-height) + var(--lip-height));
+    overflow: hidden;
 
     transform-style: preserve-3d;
     transform-origin: center bottom;
@@ -71,9 +73,34 @@
         skew(var(--skew));
 }
 
-.road-segment {
+/* .road-segment {
     background-color: #292929;
     background: 
         var(--lip) left top/100% var(--lip-height) no-repeat,
         #292929 var(--tex) left var(--lip-height)/100% var(--segment-height);
+} */
+
+.road-segment .road-lip {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: var(--lip-height);
+}
+.road-segment .road-texture {
+    position: absolute;
+    top: var(--lip-height);
+    width: 100%;
+    height: var(--segment-height);
+}
+.road-segment .road-tarmac-light {
+    fill: #292929;
+}
+.road-segment .road-tarmac-dark {
+    fill: #222222;
+}
+.road-segment .road-lane-line {
+    fill: #F7B500;
+}
+.road-segment .road-edge-line {
+    fill: #DDD;
 }

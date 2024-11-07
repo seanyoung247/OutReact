@@ -1,5 +1,5 @@
 
-import { useContext, useMemo } from 'react'
+import { useContext, useMemo, CSSProperties } from 'react'
 import { RoadSegmentDescriptor } from "./utils"
 import { ScrollContext } from '../scrollmanager'
 
@@ -18,6 +18,49 @@ type Props = {
     length: number,
 }
 
+const Segment = ({style}:{style:CSSProperties}) => (
+    <div className='road-segment' style={style}>
+        <svg className='road-lip'
+            viewBox='0 0 100 100' 
+            preserveAspectRatio='none'>
+            <g>
+                <rect className='road-tarmac-light'
+                    width="100%" height="100%"
+                    x="0" y="0"
+                />
+            </g>
+        </svg>
+        <svg className='road-texture'
+            viewBox='0 0 100 100' 
+            preserveAspectRatio='none'>
+            <g>
+                <rect className='road-tarmac-light'
+                    width='100%' height='55%'
+                    x='0' y='0'
+                />
+                <rect className='road-tarmac-dark'
+                    width='100%' height='50%'
+                    x='0' y='50%'
+                />
+            </g>
+            <g>
+                <rect className='road-lane-line'
+                    width='2%' height='50%'
+                    x='49%' y='25%'
+                />
+                <rect className='road-edge-line'
+                    width='2%' height='100%'
+                    x='2' y='0'
+                />
+                <rect className='road-edge-line'
+                    width='2%' height='100%'
+                    x='96%' y='0'
+                />
+            </g>
+        </svg>
+    </div>
+)
+
 const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
     const segments:React.ReactElement[] = []
     let topX = 0, baseX = 0
@@ -25,11 +68,18 @@ const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor) => {
     for (let z = start; z < start + length; z++) {
         const segment = road[wrap(0, z, road.length)]
         segments.push(
-            <div key={z - start} className="road-segment"
+            // <div key={z - start} className="road-segment"
+            //     style={{
+            //         '--z': z,
+            //         '--bX': baseX,
+            //         '--tX': (baseX += topX),
+            //     }}
+            // />
+            <Segment key={z - start}
                 style={{
                     '--z': z,
                     '--bX': baseX,
-                    '--tX': (baseX += topX),
+                    '--tX': (baseX += topX)
                 }}
             />
         )
