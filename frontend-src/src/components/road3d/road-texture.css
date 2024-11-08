@@ -1,34 +1,30 @@
 
 .road-segment {
     /* Colours */
-    --tarmac: #292929;
-    --dark: #222;
-    --gutter: #DDD;
-    --line: #F7B500;
+    --tarmac-light: #292929;
+    --tarmac-dark: #222;
+    --gutter-line: #DDD;
+    --lane-line: #F7B500;
+}
 
-    /* Textures */
-    --edge-lines: 
-        linear-gradient(90deg, 
-            transparent 2%, 
-            var(--gutter) 2% 5%, 
-            transparent 5% 95%, 
-            var(--gutter) 95% 98%, 
-            transparent 98%
-        );
-    --lane-lines:
-        linear-gradient(
-            transparent 25%,
-            var(--line) 25% 75%,
-            transparent 75%
-        );
-    --road-surface:
-        linear-gradient(
-            var(--tarmac) var(--segment-center),
-            var(--dark) var(--segment-center)
-        );
-
-    background: 
-        var(--edge-lines), 
-        var(--lane-lines) 50% var(--lip-height) / 2% var(--segment-height) repeat-y, 
-        var(--road-surface);
+.road-segment .road-texture {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%; 
+}
+.road-segment .road-tarmac-light {
+    fill: var(--tarmac-light);
+}
+.road-segment .road-tarmac-dark {
+    fill: var(--tarmac-dark);
+    y: calc(50% + (var(--lip-height) / 2));
+}
+.road-segment .road-lane-line {
+    fill: var(--lane-line);
+    y: calc(25% + (var(--lip-height) / 2));
+    height: calc(50% - (var(--lip-height) / 2))
+}
+.road-segment .road-edge-line {
+    fill: var(--gutter-line);
 }
