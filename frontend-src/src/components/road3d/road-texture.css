@@ -9,7 +9,7 @@
 
 .road-segment .road-texture {
     position: absolute;
-    left: 0; top: 0;
+    left: 0; bottom: 0;
     width: 100%;
     height: 100%; 
 }
@@ -18,12 +18,9 @@
 }
 .road-segment .road-tarmac-dark {
     fill: var(--tarmac-dark);
-    y: calc(50% + (var(--lip-height) / 2));
 }
 .road-segment .road-lane-line {
     fill: var(--lane-line);
-    y: calc(25% + (var(--lip-height) / 2));
-    height: calc(50% - (var(--lip-height) / 2))
 }
 .road-segment .road-edge-line {
     fill: var(--gutter-line);

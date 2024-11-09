@@ -1,9 +1,16 @@
 
 .road {
-    --scale: 4;
-    --road-length: 100;
+    /*
+     * Variables
+     */
     --offZ: calc( var(--camZ) - var(--z, 0) );
     --camX: calc( var(--offZ) * var(--bC, 0) );
+    /* Segment Size */
+    --segment-width: calc((var(--sW) * 1lvh) / var(--scale));
+    --segment-height: calc(var(--sH) * 1lvh);
+    --lip-height: calc(var(--sL) * 1lvh);
+    /* Segment Positioning */
+    --segment-center: calc(var(--lip-height) + (var(--segment-height) / 2 ));
 
     height: 100%;
     width: 100%;
@@ -12,17 +19,6 @@
 }
 
 .road-segment {
-    /*
-     * Variables
-     */
-    /* Segment Size */
-    --segment-width: calc(150lvh / var(--scale));
-    --segment-y: calc(var(--road-length) / var(--sc));
-    --segment-height: calc(var(--segment-y) * 1lvh);
-    --lip-height: 2lvh;
-    /* Segment Positioning */
-    --segment-center: calc(var(--lip-height) + (var(--segment-height) / 2 ));
-
     /*
      * Base styles
      */
@@ -51,7 +47,7 @@
     /* X offset of bottom of segement relative to top */
     --offX: calc( (var(--bX) - var(--tX) + var(--camX)) / var(--scale));
     /* Angle between top and bottom of segment */ 
-    --skew: atan( var(--offX) / var(--segment-y) );
+    --skew: atan( var(--offX) / var(--sH) );
 
     /*
      * Positioning
@@ -66,4 +62,13 @@
             0
         )
         skew(var(--skew));      /* Skew segment to align road angle */
+}
+
+.road-segment:last-child::after {
+    content: '';
+    background: red;
+    position: absolute;
+    left: 0; bottom: 0;
+    width: var(--segment-width);
+    height: calc();
 }
