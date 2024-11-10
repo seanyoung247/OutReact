@@ -3,14 +3,12 @@
     /*
      * Variables
      */
-    --offZ: calc( var(--camZ) - var(--z, 0) );
+    --offZ: calc( var(--camZ) - var(--bZ, 0) );
     --camX: calc( var(--offZ) * var(--bC, 0) );
     /* Segment Size */
     --segment-width: calc((var(--sW) * 1lvh) / var(--scale));
     --segment-height: calc(var(--sH) * 1lvh);
     --lip-height: calc(var(--sL) * 1lvh);
-    /* Segment Positioning */
-    --segment-center: calc(var(--lip-height) + (var(--segment-height) / 2 ));
 
     height: 100%;
     width: 100%;
@@ -41,9 +39,9 @@
      * Positioning Math
      */
     /* Z (depth) offset of segment relative to screen */
-    --offZ: calc( var(--z) - var(--camZ) );
+    --posZ: calc( var(--myZ) - var(--camZ) );
     /* Segment X position */
-    --posX: calc( (var(--bX) - (var(--camX) * var(--offZ))) / var(--scale) );
+    --posX: calc( (var(--bX) - (var(--camX) * var(--posZ))) / var(--scale) );
     /* X offset of bottom of segement relative to top */
     --offX: calc( (var(--bX) - var(--tX) + var(--camX)) / var(--scale));
     /* Angle between top and bottom of segment */ 
@@ -58,17 +56,16 @@
         rotateX(90deg)          /* Rotate to ground plane */
         translate3d(            /* Move segment */
             calc((-50% / var(--scale)) + (var(--posX) * 1lvh)),
-            calc(var(--offZ) * (0lvh - var(--segment-height))),
+            calc(var(--posZ) * (0lvh - var(--segment-height))),
             0
         )
         skew(var(--skew));      /* Skew segment to align road angle */
 }
 
-.road-segment:last-child::after {
-    content: '';
-    background: red;
-    position: absolute;
-    left: 0; bottom: 0;
-    width: var(--segment-width);
-    height: calc();
+.road-segment:last-child {
+    border-radius: 0;
+    height: calc(
+        var(--segment-height) + var(--lip-height) + 
+        (var(--segment-height) * var(--offZ))
+    );
 }

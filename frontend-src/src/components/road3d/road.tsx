@@ -66,7 +66,7 @@ const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor, segm
             <Segment key={z - start}
                 center={segmentCenter}
                 style={{
-                    '--z': z,
+                    '--myZ': z,
                     '--bX': baseX,
                     '--tX': (baseX += topX)
                 }}
@@ -87,7 +87,7 @@ export const Road = ({road, length}:Props) => {
     return (
         <div className="road" 
             style={{
-                '--z': z,
+                '--bZ': z,
                 '--camZ': camZ % road.length + 0.15,
                 '--scale': segmentSettings.scale,
                 '--sW': segmentSettings.width,
