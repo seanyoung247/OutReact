@@ -35,7 +35,7 @@ export const ScrollManager = ({children, road}:Props) => {
 
     return (
         <ScrollContext.Provider value={position}>
-            <div style={{height:'10000px'}}/>
+            <div style={{height:'20000px'}}/>
             { children }
         </ScrollContext.Provider>
     )

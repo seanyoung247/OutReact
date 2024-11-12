@@ -9,6 +9,7 @@ import { useRef, useState } from 'react'
 import { roadSegments } from './testRoad'
 import { formatRoad } from './components/road3d/utils'
 import './App.css'
+import { Sign } from './components/sign'
 
 const road = formatRoad(roadSegments)
 
@@ -34,6 +35,7 @@ const App = () => {
             <div className="framerate">{FPS}</div>
             <Background horizon={35}>
                 <View3D width='100%' height='100lvh' perspective={4} horizon={35}>
+                    <Sign z={5}/>
                     <Road road={road} length={20}/>
                 </View3D>
             </Background>
