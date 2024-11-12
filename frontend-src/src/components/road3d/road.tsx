@@ -1,13 +1,13 @@
 
 import { useContext, CSSProperties } from 'react'
-import { RoadSegmentDescriptor } from "./utils"
+import { RoadDescriptor } from "./utils"
 import { ScrollContext } from '../scrollmanager'
 
 import './road.css'
 import './road-texture.css'
 
 type Props = {
-    road: RoadSegmentDescriptor,
+    road: RoadDescriptor,
     length: number,
 }
 
@@ -56,7 +56,7 @@ const Segment = ({ style, center }: SegmentProps) => (
     </div>
 )
 
-const buildRoad = (start:number, length:number, road:RoadSegmentDescriptor, segmentSettings: SegmentSettings) => {
+const buildRoad = (start:number, length:number, road:RoadDescriptor, segmentSettings: SegmentSettings) => {
     const segments:React.ReactElement[] = []
     const segmentCenter = ((segmentSettings.height / 2) / (segmentSettings.height + segmentSettings.lip)) * 100
     let topX = 0, baseX = 0

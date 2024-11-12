@@ -7,7 +7,10 @@ import { Road } from './components/road3d/road'
 import { useAnimationFrame } from './hooks/frame'
 import { useRef, useState } from 'react'
 import { roadSegments } from './testRoad'
+import { formatRoad } from './components/road3d/utils'
 import './App.css'
+
+const road = formatRoad(roadSegments)
 
 const App = () => {
     const lastTime = useRef(performance.now())
@@ -27,11 +30,11 @@ const App = () => {
     })
 
     return (
-        <ScrollManager>
+        <ScrollManager road={road}>
             <div className="framerate">{FPS}</div>
             <Background horizon={35}>
                 <View3D width='100%' height='100lvh' perspective={4} horizon={35}>
-                    <Road road={roadSegments} length={20}/>
+                    <Road road={road} length={20}/>
                 </View3D>
             </Background>
         </ScrollManager>
