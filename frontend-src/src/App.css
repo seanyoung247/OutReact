@@ -8,6 +8,11 @@
   height: 100lvh;
 }
 
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth; 
+}
+
 .framerate {
   position: fixed;
   top: 10px;
