@@ -4,24 +4,20 @@
     --sign-background: #389C81;
 
     position: absolute;
-    top: 50%; left: 35%;
+    top: 25%; left: 0%;
+    width: 100lvw;
+    max-width: 150lvh;
 
     color: var(--sign-color);
     background-color: var(--sign-background);
 
+    font-size: 2em;
+
     transform: translate3d(
-        -50%,
-        -50%,
+        0,
+        0,
         calc((var(--z) - (var(--camZ))) * (0lvh - 5lvh))
     );
-}
-
-.sign-content {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    border-radius: 10px;
-    border: 2px solid var(--sign-color);
 }
 
 .sign-header {
@@ -32,6 +28,10 @@
     border: 2px solid var(--sign-color);
 }
 
-.skills-list {
-    list-style: none;
+.sign-content {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid var(--sign-color);
 }

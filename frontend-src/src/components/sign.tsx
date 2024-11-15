@@ -5,10 +5,12 @@ import './sign.css'
 
 
 type Props = {
-    z: number,      //Z position of the billboard
+    header: string, // Value for sign header
+    z: number,      // Z position of the billboard
+    children?: React.ReactNode
 }
 
-export const Sign = ({z}:Props) => {
+export const Sign = ({z, header, children}:Props) => {
     const {camZ} = useContext(ScrollContext)
 
     return (
@@ -19,13 +21,8 @@ export const Sign = ({z}:Props) => {
             }}
         >
             <div className='sign-content'>
-                <span className="sign-header">Skills</span>
-                <ul className='skills-list'>
-                    <li>JavaScript</li>
-                    <li>TypeScript</li>
-                    <li>Python</li>
-                    <li>HTML/CSS</li>
-                </ul>
+                <span className="sign-header">{ header }</span>
+                { children }
             </div>
             
         </div>

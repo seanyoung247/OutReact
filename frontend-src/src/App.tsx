@@ -10,6 +10,7 @@ import { roadSegments } from './testRoad'
 import { formatRoad } from './components/road3d/utils'
 import './App.css'
 import { Sign } from './components/sign'
+import { Car } from './components/car'
 
 const road = formatRoad(roadSegments)
 
@@ -35,7 +36,15 @@ const App = () => {
             <div className="framerate">{FPS}</div>
             <Background horizon={35}>
                 <View3D width='100%' height='100lvh' perspective={4} horizon={35}>
-                    <Sign z={5}/>
+                    <Car/>
+                    <Sign z={5} header="Skills">
+                        <ul className='skills-list'>
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                            <li>Python</li>
+                            <li>HTML/CSS</li>
+                        </ul>
+                    </Sign>
                     <Road road={road} length={20}/>
                 </View3D>
             </Background>

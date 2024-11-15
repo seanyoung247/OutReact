@@ -37,22 +37,22 @@ export const ScrollManager = ({children, road}:Props) => {
         <ScrollContext.Provider value={position}>
             <div style={{
                 height:'20000px',
-                scrollSnapType: 'y proximity',
             }}>
                 <div style={{
-                    height: '4.166%',
+                    height: '3.75%',
                     background: 'green',
-                    scrollSnapAlign:'center',
+                    // scrollSnapAlign:'center',
                 }}></div>
                 <div style={{
                     background: 'red',
                     height: '15lvh',
                     width: '100%',
+                    scrollSnapStop: 'always',
                     scrollSnapAlign: 'start',
                 }}></div>
                 <div style={{
                     height: '50%',
-                    scrollSnapAlign:'center',
+                    // scrollSnapAlign:'center',
                 }}></div>
             </div>
             { children }
