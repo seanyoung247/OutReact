@@ -6,8 +6,7 @@ export const Car = () => (
         position: 'absolute',
         left: '50%',
         bottom: '0',
-        width: '50lvh',
-        maxWidth: '50lvw',
+        width: '25lvh',
         transform: 'translate3d(-50%,0,-1lvh)'
     }}>
         <img src={CarImg} alt="The Player's Car" />

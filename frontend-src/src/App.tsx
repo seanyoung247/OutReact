@@ -24,12 +24,12 @@ const App = () => {
             <Background horizon={35}>
                 <View3D width='100%' height='100lvh' perspective={4} horizon={35}>
                     <Car/>
-                    <Sign z={5} header="Skills">
+                    <Sign z={5} header="Language Skills">
                         <ul className='skills-list'>
-                            <li>JavaScript</li>
-                            <li>TypeScript</li>
-                            <li>Python</li>
-                            <li>HTML/CSS</li>
+                            <li><span>JavaScript</span> <span>100 m</span></li>
+                            <li><span>HTML/CSS</span> <span>100 m</span></li>
+                            <li><span>TypeScript</span> <span>75 m</span></li>
+                            <li><span>Python</span> <span>75 m</span></li>
                         </ul>
                     </Sign>
                     <Road road={road} length={20}/>

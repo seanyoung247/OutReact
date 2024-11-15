@@ -24,3 +24,7 @@ html {
 .skills-list {
   list-style: none;
 }
+.skills-list > li {
+  display: flex;
+  justify-content: space-between;
+}

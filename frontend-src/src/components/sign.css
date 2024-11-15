@@ -7,10 +7,10 @@
     top: 25%; left: 0%;
     width: 100lvw;
     max-width: 150lvh;
+    padding: 1px;
 
     color: var(--sign-color);
     background-color: var(--sign-background);
-
     font-size: 2em;
 
     transform: translate3d(
@@ -22,16 +22,17 @@
 
 .sign-header {
     align-self: flex-end;
-    margin: -7px -7px 0 0;
-    padding: 0 5px 0 5px;
+    margin: -12px -12px 0 0;
+    padding: 0 10px;
     border-radius: 10px;
+    text-transform: uppercase;
     border: 2px solid var(--sign-color);
 }
 
 .sign-content {
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     border: 2px solid var(--sign-color);
 }
