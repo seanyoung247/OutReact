@@ -4,36 +4,23 @@ import { Background } from './components/background'
 import { View3D } from './components/view3d'
 import { Road } from './components/road3d/road'
 
-import { useAnimationFrame } from './hooks/frame'
-import { useRef, useState } from 'react'
 import { roadSegments } from './testRoad'
 import { formatRoad } from './components/road3d/utils'
-import './App.css'
+import { useFPS } from './hooks/fps'
+
 import { Sign } from './components/sign'
 import { Car } from './components/car'
+
+import './App.css'
 
 const road = formatRoad(roadSegments)
 
 const App = () => {
-    const lastTime = useRef(performance.now())
-    const count = useRef(0)
-    const [FPS, setFPS] = useState(0)
-
-
-    useAnimationFrame(()=>{
-        const frameTime = performance.now()
-        const delta = frameTime - lastTime.current
-        if (delta >= 1000) {
-            setFPS(count.current)
-            count.current = 0
-            lastTime.current = frameTime
-        }
-        count.current++
-    })
+    const fps = useFPS()
 
     return (
         <ScrollManager road={road}>
-            <div className="framerate">{FPS}</div>
+            <div className="framerate">{fps}</div>
             <Background horizon={35}>
                 <View3D width='100%' height='100lvh' perspective={4} horizon={35}>
                     <Car/>
