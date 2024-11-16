@@ -1,5 +1,5 @@
 
-import CarImg from '../assets/car-plain.svg'
+import CarImg from '../../assets/car-plain.svg'
 
 export const Car = () => (
     <div className="car" style={{

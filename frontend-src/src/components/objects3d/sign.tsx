@@ -1,6 +1,6 @@
 
 import { useContext } from 'react'
-import { ScrollContext } from './scrollmanager'
+import { PositionContext } from '../road3d/roadposition'
 import './sign.css'
 
 
@@ -11,7 +11,7 @@ type Props = {
 }
 
 export const Sign = ({z, header, children}:Props) => {
-    const {camZ} = useContext(ScrollContext)
+    const {camZ} = useContext(PositionContext)
 
     return (
         <div className='road-sign'
