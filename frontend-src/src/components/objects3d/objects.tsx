@@ -6,7 +6,7 @@ import { Sign } from "./sign"
 export const RoadObjects = () => {
     return (
         <>
-            <Sign z={5} header="Language  Skills">
+            <Sign z={5} header="Language Skills">
                 <ul className='skills-list'>
                     <li><span>JavaScript</span> <span>100 m</span></li>
                     <li><span>HTML/CSS</span> <span>100 m</span></li>
@@ -29,7 +29,6 @@ export const ObjectStops = () => {
             }}></div>
             <div style={{
                 height: '15lvh',
-                scrollSnapStop: 'always',
                 scrollSnapAlign: 'start',
             }}></div>
             <div style={{

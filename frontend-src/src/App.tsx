@@ -3,7 +3,7 @@ import { RoadPosition } from './components/road3d/roadposition'
 import { Background } from './components/background'
 import { View3D } from './components/view3d'
 import { Road } from './components/road3d/road'
-import { RoadObjects, ObjectStops } from './components/objects3d/objects'
+import { RoadObjects } from './components/objects3d/objects'
 
 import { roadSegments } from './testRoad'
 import { formatRoad } from './components/road3d/utils'
@@ -19,7 +19,6 @@ const road = formatRoad(roadSegments)
 const App = () => (
     <RoadPosition road={road} length='20000px'>
         <div className="framerate">{ useFPS() }</div>
-        <ObjectStops />
         <Background horizon={35}>
             <View3D width='100%' height='100lvh' perspective={4} horizon={35}>
                 <Car/>

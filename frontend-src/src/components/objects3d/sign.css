@@ -4,29 +4,27 @@
     --sign-background: #389C81;
 
     position: absolute;
-    top: 25%; left: 0%;
-    width: 100lvw;
-    max-width: 150lvh;
-    padding: 1px;
+    top: 25%; left: 50%;
+    width: 100lvh;
 
     color: var(--sign-color);
     background-color: var(--sign-background);
     font-size: 2em;
 
     transform: translate3d(
-        0,
-        0,
+        -50%,
+        -50%,
         calc((var(--z) - (var(--camZ))) * (0lvh - 5lvh))
     );
 }
 
 .sign-header {
     align-self: flex-end;
-    margin: -12px -12px 0 0;
     padding: 0 10px;
     border-radius: 10px;
     text-transform: uppercase;
     border: 2px solid var(--sign-color);
+    translate: 12px -12px;
 }
 
 .sign-content {
