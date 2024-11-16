@@ -1,6 +1,6 @@
 
 import { useContext } from 'react'
-import { ScrollContext } from './scrollmanager'
+import { PositionContext } from './road3d/roadposition'
 
 import Img from '../assets/testbackground.png'
 import './background.css'
@@ -11,7 +11,7 @@ type Props = {
 }
 
 export const Background = ({horizon, children}:Props) => {
-    const camX = -(useContext(ScrollContext).camX)
+    const camX = -(useContext(PositionContext).camX)
 
     return (
         <div

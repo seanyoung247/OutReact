@@ -1,7 +1,7 @@
 
 import { useContext, CSSProperties } from 'react'
 import { RoadDescriptor } from "./utils"
-import { ScrollContext } from '../scrollmanager'
+import { PositionContext } from './roadposition'
 
 import './road.css'
 import './road-texture.css'
@@ -79,7 +79,7 @@ const buildRoad = (start:number, length:number, road:RoadDescriptor, segmentSett
 }
 
 export const Road = ({road, length}:Props) => {
-    const {camZ} = useContext(ScrollContext)
+    const {camZ} = useContext(PositionContext)
     const z = Math.floor(camZ) % road.length
     const segmentSettings = getSettings(length)
     const segments = buildRoad(z, length, road, segmentSettings)
