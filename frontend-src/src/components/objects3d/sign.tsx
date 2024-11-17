@@ -1,16 +1,11 @@
 
 import { useContext } from 'react'
 import { PositionContext } from '../road3d/roadposition'
+import { ObjectProps, ObjectTemplates } from './templates'
+
 import './sign.css'
 
-
-type Props = {
-    header: string, // Value for sign header
-    z: number,      // Z position of the billboard
-    children?: React.ReactNode
-}
-
-export const Sign = ({z, header, children}:Props) => {
+ObjectTemplates.register('sign', ({z, header, children}:ObjectProps) => {
     const {camZ} = useContext(PositionContext)
 
     return (
@@ -27,4 +22,4 @@ export const Sign = ({z, header, children}:Props) => {
             
         </div>
     )
-}
+})
