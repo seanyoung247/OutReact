@@ -10,12 +10,11 @@ export const config = {
     road: {
         scale: 4,           // Road Scaling factor
         distance: 100,      // Visible distance in lvh units
-        segment: {
-            count: 20,      // Number of onscreen visible segments
-            width: 150,
-            get height() {  // Height of individual segments in lvh
-                return config.road.distance / this.count
-            },
+        width: 150,         // road width in lvh
+        // Segment values
+        count: 20,          // Number of onscreen visible segments
+        get height() {      // Height of individual segments in lvh
+            return this.distance / this.count
         },
     },
 }
