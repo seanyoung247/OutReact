@@ -1,8 +1,6 @@
 
 import { ObjectTemplates } from "./templates"
 
-import "./sign"
-
 /*
  * Manages visible road objects, info panels and decorations
  */
