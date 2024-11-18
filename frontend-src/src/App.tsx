@@ -25,7 +25,7 @@ const App = () => (
             <View3D {...config.view}>
                 <Car/>
                 <RoadObjects />
-                <Road road={road} length={config.road.count}/>
+                <Road road={road} {...config.road}/>
             </View3D>
         </Background>
     </RoadPosition>

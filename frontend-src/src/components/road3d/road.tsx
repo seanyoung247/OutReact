@@ -8,7 +8,11 @@ import './road-texture.css'
 
 type Props = {
     road: RoadDescriptor,
-    length: number,
+    scale: number,
+    count: number,
+    width: number,
+    height: number,
+    lip: number
 }
 
 type SegmentProps = {
@@ -22,13 +26,6 @@ type SegmentSettings = {
     height: number,
     lip: number,
 }
-
-const getSettings = (length:number):SegmentSettings => ({
-    scale: 4,
-    width: 150,
-    height: 100 / length,
-    lip: 2
-})
 
 const Segment = ({ style, center }: SegmentProps) => (
     <div className='road-segment' style={style}>
@@ -78,21 +75,20 @@ const buildRoad = (start:number, length:number, road:RoadDescriptor, segmentSett
     return segments
 }
 
-export const Road = ({road, length}:Props) => {
+export const Road = ({road, scale, lip, width, height, count}:Props) => {
     const {camZ} = useContext(PositionContext)
     const z = Math.floor(camZ) % road.length
-    const segmentSettings = getSettings(length)
-    const segments = buildRoad(z, length, road, segmentSettings)
+    const segments = buildRoad(z, count, road, {scale, width, height, lip})
     
     return (
         <div className="road" 
             style={{
                 '--bZ': z,
                 '--camZ': camZ % road.length + 0.15,
-                '--scale': segmentSettings.scale,
-                '--sW': segmentSettings.width,
-                '--sH': segmentSettings.height,
-                '--sL': segmentSettings.lip,
+                '--scale': scale,
+                '--sW': width,
+                '--sH': height,
+                '--sL': lip,
                 '--bC': road[z].curve,
             }}
         >
