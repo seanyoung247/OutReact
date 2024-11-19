@@ -14,8 +14,11 @@ export const config = {
         // Segment values
         count: 20,          // Number of onscreen visible segments
         lip: 2,             // Length of overlap between segments in lvh
-        get height() {      // Height of individual segments in lvh
+        get length() {      // Length of individual segments excluding lip
             return this.distance / this.count
+        },
+        get height() {      // Total length of segments including lip
+            return this.length + this.lip
         },
     },
 }

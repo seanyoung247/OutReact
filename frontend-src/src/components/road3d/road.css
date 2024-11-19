@@ -8,12 +8,12 @@
     /* Segment Size */
     --segment-width: calc((var(--sW) * 1lvh) / var(--scale));
     --segment-height: calc(var(--sH) * 1lvh);
+    --segment-length: calc(var(--sV) * 1lvh);
     --lip-height: calc(var(--sL) * 1lvh);
 
     height: 100%;
     width: 100%;
     transform-style: preserve-3d;
-    transform: translate3d(0, 0, 0);
 }
 
 .road-segment {
@@ -24,7 +24,7 @@
     left: 50%; bottom: 0;
     
     width: var(--segment-width);
-    height: calc(var(--segment-height) + var(--lip-height));
+    height: var(--segment-height);
 
     transform-style: preserve-3d;
     transform-origin: center bottom;
@@ -56,16 +56,16 @@
         rotateX(90deg)          /* Rotate to ground plane */
         translate3d(            /* Move segment */
             calc((-50% / var(--scale)) + (var(--posX) * 1lvh)),
-            calc(var(--posZ) * (0lvh - var(--segment-height))),
+            calc(var(--posZ) * (0lvh - var(--segment-length))),
             0
         )
         skew(var(--skew));      /* Skew segment to align road angle */
 }
+
 /* Makes the last road segment stretch to cover the end gap */
 .road-segment:last-child {
     border-radius: 0;
     height: calc(
-        var(--segment-height) + var(--lip-height) + 
-        (var(--segment-height) * var(--offZ))
+        var(--segment-height) + (var(--segment-length) * var(--offZ))
     );
 }

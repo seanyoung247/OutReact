@@ -10,6 +10,7 @@
 }
 
 html {
+  image-rendering: pixelated;
   scroll-snap-type: y proximity;
   scroll-behavior: smooth; 
 }

@@ -20,8 +20,12 @@
     fill: var(--tarmac-dark);
 }
 .road-segment .road-lane-line {
-    fill: var(--lane-line);
+    stroke: var(--lane-line);
+    stroke-width: 2%;
+    stroke-dashoffset: -25;
+    stroke-dasharray: 50;
 }
 .road-segment .road-edge-line {
-    fill: var(--gutter-line);
+    stroke: var(--gutter-line);
+    stroke-width: 2%;
 }
