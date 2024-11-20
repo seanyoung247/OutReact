@@ -4,7 +4,6 @@ import { RoadPosition } from './components/road3d/roadposition'
 import { Background } from './components/background'
 import { View3D } from './components/view3d'
 import { Road } from './components/road3d/road'
-import { RoadObjects } from './components/objects3d/objects'
 import { Car } from './components/objects3d/car'
 // Settings
 import { config } from './components/config'
@@ -24,8 +23,7 @@ const App = () => (
         <Background horizon={config.view.horizon}>
             <View3D {...config.view}>
                 <Car/>
-                <RoadObjects />
-                <Road road={road} {...config.road}/>
+                <Road road={road} settings={{...config.road}}/>
             </View3D>
         </Background>
     </RoadPosition>

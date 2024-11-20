@@ -5,7 +5,7 @@
 
     position: absolute;
     top: 25%; left: 50%;
-    width: min(100%, 100lvh);
+    width: 100%;
 
     color: var(--sign-color);
     background-color: var(--sign-background);
