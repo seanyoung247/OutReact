@@ -1,7 +1,6 @@
 
 import { useContext } from 'react'
 import { RoadDescriptor, RoadSegments, RoadSettings } from "./utils"
-import { percent } from '../../utilities/misc'
 
 import { PositionContext } from './roadposition'
 import { RoadObjects } from '../objects3d/objects'
@@ -33,8 +32,6 @@ export const Road = ({road, settings}:Props) => {
     const {camZ} = useContext(PositionContext)
     const z = Math.floor(camZ) % road.length
     const segments = getSegments(z, road, settings)
-    const segmentCenter = percent((settings.length / 2), settings.height)
-    const segmentTop = percent(settings.lip, settings.height)
     const roadStyle = {
         '--bZ': z,
         '--bC': road[z].curve,
@@ -47,17 +44,15 @@ export const Road = ({road, settings}:Props) => {
     }
     
     return (
-        <>
-            <div className="road" style={roadStyle}>
-                <RoadObjects />
-                { segments.map(v => (
-                    <div key={v.z - z} className='road-segment'
-                        style={{ '--myZ': v.z, '--bX': v.bX, '--tX': v.tX }}>
+        <div className="road" style={roadStyle}>
+            <RoadObjects />
+            { segments.map(v => (
+                <div key={ v.z - z } className='road-segment'
+                    style={ { '--myZ': v.z, '--bX': v.bX, '--tX': v.tX } }>
 
-                        <RoadTexture lanes={settings.lanes} center={segmentCenter} top={segmentTop} />
-                    </div>
-                )) }
-            </div>
-        </>
+                    <RoadTexture { ...settings } />
+                </div>
+            )) }
+        </div>
     )
 }
