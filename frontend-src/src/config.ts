@@ -26,6 +26,7 @@ export const config:Config = {
         width: 150,         // road width in lvh
         // Segment values
         count: 20,          // Number of onscreen visible segments
+        lanes: 3,           // The number of lanes on the road
         lip: 2,             // Length of overlap between segments in lvh
         get length() {      // Length of individual segments excluding lip
             return this.distance / this.count
@@ -33,6 +34,5 @@ export const config:Config = {
         get height() {      // Total length of segments including lip
             return this.length + this.lip
         },
-        lanes: 3,
     },
 }

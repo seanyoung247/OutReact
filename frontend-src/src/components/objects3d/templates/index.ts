@@ -1,13 +1,6 @@
 
-import { ObjectTemplates } from './templates'
-
-// Import template components here:
-import { Sign } from './sign'
-
-// Register templates
-ObjectTemplates.register('sign', Sign)
-
+import './registry'
 
 // Export types
-export { ObjectTemplates }
+export { ObjectTemplates } from './templates'
 export type { ObjectProps } from './templates'

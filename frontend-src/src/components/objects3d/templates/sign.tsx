@@ -5,7 +5,11 @@ import { ObjectProps } from '../templates'
 
 import './sign.css'
 
-export const Sign = ({z, header, children}:ObjectProps) => {
+export interface SignProps extends ObjectProps {
+    header: string
+}
+
+export const Sign = ({z, header, children}:SignProps) => {
     const {camZ} = useContext(PositionContext)
 
     return (
