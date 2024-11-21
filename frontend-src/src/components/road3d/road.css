@@ -69,6 +69,8 @@
         skew(var(--skew));      /* Skew segment to align road angle */
 }
 
+/* .road :nth-child(1 of .road-segment) {} */
+
 /* Makes the last road segment stretch to cover the end gap */
 .road-segment:last-child {
     border-radius: 0;

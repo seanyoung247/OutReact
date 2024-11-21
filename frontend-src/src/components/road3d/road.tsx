@@ -1,6 +1,6 @@
 
 import { useContext } from 'react'
-import { RoadDescriptor } from "./utils"
+import { RoadDescriptor, RoadSegments, RoadSettings } from "./utils"
 import { percent } from '../../utilities/misc'
 
 import { PositionContext } from './roadposition'
@@ -9,30 +9,13 @@ import { RoadTexture } from './roadtexture'
 
 import './road.css'
 
-
-type RoadSettings = {
-    scale: number,
-    distance: number,
-    width: number,
-    count: number,
-    length: number,
-    height: number,
-    lip: number,
-}
-
-type SegmentDesc = {
-    z: number,
-    bX: number,
-    tX: number
-}
-
 type Props = {
     road: RoadDescriptor,
     settings: RoadSettings
 }
 
 const getSegments = (start: number, road:RoadDescriptor, settings:RoadSettings) => {
-    const segments:SegmentDesc[] = []
+    const segments:RoadSegments[] = []
 
     let topX = 0, baseX = 0
     const last = start + settings.count
@@ -52,32 +35,29 @@ export const Road = ({road, settings}:Props) => {
     const segments = getSegments(z, road, settings)
     const segmentCenter = percent((settings.length / 2), settings.height)
     const segmentTop = percent(settings.lip, settings.height)
+    const roadStyle = {
+        '--bZ': z,
+        '--bC': road[z].curve,
+        '--camZ': camZ % road.length,
+        '--scale': settings.scale,
+        '--sW': settings.width,
+        '--sH': settings.height,
+        '--sV': settings.length,
+        '--sL': settings.lip,
+    }
     
     return (
-        <div className="road" 
-            style={{
-                '--bZ': z,
-                '--bC': road[z].curve,
-                '--camZ': camZ % road.length,
-                '--scale': settings.scale,
-                '--sW': settings.width,
-                '--sH': settings.height,
-                '--sV': settings.length,
-                '--sL': settings.lip,
-            }}
-        >
-            <RoadObjects />
-            { segments.map(v => (
-                <div key={v.z - z} className='road-segment'
-                    style={{
-                        '--myZ': v.z,
-                        '--bX': v.bX,
-                        '--tX': v.tX,
-                    }}
-                >
-                    <RoadTexture lanes={3} center={segmentCenter} top={segmentTop} />
-                </div>
-            )) }
-        </div>
+        <>
+            <div className="road" style={roadStyle}>
+                <RoadObjects />
+                { segments.map(v => (
+                    <div key={v.z - z} className='road-segment'
+                        style={{ '--myZ': v.z, '--bX': v.bX, '--tX': v.tX }}>
+
+                        <RoadTexture lanes={settings.lanes} center={segmentCenter} top={segmentTop} />
+                    </div>
+                )) }
+            </div>
+        </>
     )
 }
