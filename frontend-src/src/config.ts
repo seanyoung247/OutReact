@@ -1,5 +1,18 @@
 
-export const config = {
+import { RoadSettings } from "./components/road3d/utils"
+
+type Config = {
+    scrollHeight: string,
+    view: {
+        width: string,
+        height: string,
+        perspective: number,
+        horizon: number,
+    },
+    road: RoadSettings,
+}
+
+export const config:Config = {
     scrollHeight: '20000px',// Scroll distance
     view: {
         width: '100%',      // CSS 3D view width
@@ -20,5 +33,6 @@ export const config = {
         get height() {      // Total length of segments including lip
             return this.length + this.lip
         },
+        lanes: 3,
     },
 }

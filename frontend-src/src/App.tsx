@@ -6,7 +6,7 @@ import { View3D } from './components/view3d'
 import { Road } from './components/road3d/road'
 import { Car } from './components/objects3d/car'
 // Settings
-import { config } from './components/config'
+import { config } from './config'
 import { roadSegments } from './testRoad'
 // Utils
 import { formatRoad } from './components/road3d/utils'

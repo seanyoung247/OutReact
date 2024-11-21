@@ -22,16 +22,16 @@ export const RoadTexture = ({lanes=2, center, top}:Props) => (
             {forJSX(lanes, i => {
                 const pos = (100 / lanes) * (i + 1)
                 return (
-                    <line className='road-lane-line' pathLength='100'
+                    <line key={pos} className='road-lane-line' pathLength='100'
                         x1={pos} y1={top} x2={pos} y2='100' 
                     /> 
                 )
             })}
             <line className='road-edge-line' 
-                x1='1' y1='0' x2='1' y2='100'
+                x1='1' y1='-1' x2='1' y2='101'
             />
             <line className='road-edge-line' 
-                x1='99' y1='0' x2='99' y2='100'
+                x1='99' y1='-1' x2='99' y2='101'
             />
         </g>
     </svg>
