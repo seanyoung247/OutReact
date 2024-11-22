@@ -1,6 +1,6 @@
 
 import { RoadSegmentDescriptor } from "./components/road3d/utils";
-import { ObjectTypes } from "./components/objects3d/templates";
+import { ObjectTypes } from "./components/objects3d";
 
 export const roadSegments:RoadSegmentDescriptor = [
     { curve: 0 },
@@ -137,6 +137,10 @@ export const roadSegments:RoadSegmentDescriptor = [
 ]
 
 export const RoadObjects:ObjectTypes[] = [
-    { type: "sign", props: {z:5, header: "Hello World"} },
-    { type: "sign", props: {z:7, header: "Test 2!"} }
+    { type: "sign", props: {z:5, header: "Hello World"}, 
+        content: "Ultimately, this will be the sign contents!"
+    },
+    { type: "sign", props: {z:7, header: "Test 2!"}, 
+        content: "I'm a second tester!"
+    }
 ]

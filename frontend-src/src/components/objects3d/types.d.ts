@@ -1,5 +1,5 @@
 
-import { objectRegistry } from "./registry";
+import { objectRegistry } from "./templates/registry";
 
 // Automatically generated from the objectRegistry
 export type ObjectTypeMap = {
@@ -11,7 +11,7 @@ export type ObjectTypes = {
     type: keyof ObjectTypeMap
 } & {
     [K in keyof ObjectTypeMap]: K extends keyof ObjectTypeMap ? { 
-        type: K; props: ObjectTypeMap[K] 
+        type: K; props: ObjectTypeMap[K], content?: string
     } : never
 }[keyof ObjectTypeMap]
 

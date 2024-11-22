@@ -1,6 +1,6 @@
 
 import { ObjectTypeMap, ObjectComponent} from "./types"
-import { objectRegistry } from "./registry"
+import { objectRegistry } from "./templates/registry"
 
 
 export const ObjectTemplates = (()=>{
