@@ -1,14 +1,6 @@
 
-import React from "react"
-import { ObjectTypeMap } from "./registry"
-
-export type ObjectProps = {
-    z: number,
-    y?: number,
-    x: number,
-    children?: React.ReactNode
-}
-export type ObjectComponent<T extends ObjectProps = ObjectProps> = React.FC<T>;
+import { ObjectTypeMap, ObjectComponent} from "./types"
+import { objectRegistry } from "./registry"
 
 
 export const ObjectTemplates = (()=>{
@@ -28,3 +20,9 @@ export const ObjectTemplates = (()=>{
         }
     }
 })()
+
+// Iterate over entries in the object registry and register them
+Object.keys(objectRegistry).forEach((key) => {
+    const name = key as keyof typeof objectRegistry
+    ObjectTemplates.register(name, objectRegistry[name].component)
+})
