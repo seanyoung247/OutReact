@@ -12,7 +12,11 @@ export const RoadObjects = () => {
                 const Component = registry(obj.type)
                 return (
                     <Component key={i} {...obj.props} >
-                        { obj.content }
+                        { obj.content && obj.content.map((item, i) => (
+                            typeof item === "string" ? (
+                                <span key={i}>{item}</span>
+                            ) : (null)
+                        )) }
                     </Component>
                 )
             }) }
@@ -23,6 +27,6 @@ export const RoadObjects = () => {
 /*
  * Produces scroll stops for all objects content objects on the road 
  */
-export const ObjectStops = () => {
+export const RoadStops = () => {
     return ( <></> )
 }
