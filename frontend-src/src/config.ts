@@ -1,5 +1,6 @@
 
-import { RoadSettings } from "./components/road3d/utils"
+import { RoadSettings } from "./components/road3d"
+import { ObjectSettings } from "./components/objects3d"
 
 type Config = {
     showFPS: boolean,
@@ -11,6 +12,7 @@ type Config = {
         horizon: number,
     },
     road: RoadSettings,
+    objects: ObjectSettings,
 }
 
 export const config:Config = {
@@ -37,4 +39,7 @@ export const config:Config = {
             return this.length + this.lip
         },
     },
+    objects: {
+        maxDepth: 3,            // Maximum depth of nested child objects
+    }
 }
