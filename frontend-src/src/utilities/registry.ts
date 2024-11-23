@@ -15,8 +15,11 @@ export type RegistryTypes<T extends Templates> = {
     [K in keyof T]: {
         type: K;
         props: T[K]['props'];
-        content?: Array<string | RegistryTypes<T>>;
-    }
+    } & (T[K]['props'] extends { children: React.ReactNode }    // Requires children
+        ? { content: Array<string | RegistryTypes<T>> }         //   content is required
+        : T[K]['props'] extends { children?: React.ReactNode }  // Optionally supports children
+        ? { content?: Array<string | RegistryTypes<T>> }        //   content is optional
+        : { content?: never})                                   // Does not support children/content
 }[keyof T]
 
 /*
