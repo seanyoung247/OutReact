@@ -1,11 +1,30 @@
 
 import { RoadDescriptor } from "../road3d"
-import { objectsRegistry as registry } from "./templates/registry"
+import { objectsRegistry, /*RoadObjectsDescriptor*/ } from "./templates/registry"
 
 
 type Props = {
     road: RoadDescriptor
 }
+
+// type ContentType = Array<string | RoadObjectsDescriptor>
+
+// const renderContent = (content: ContentType, depth: number) => ((
+//     content.map
+// ))
+
+// const DynamicObject = ({ obj, depth }: { obj: RoadObjectsDescriptor, depth:number }) => {
+//     const Component = objectsRegistry(obj.type)
+//     return (
+//         <Component {...obj.props}>
+//             {}
+//         </Component>
+//     )
+// }
+
+// const ObjectRenderer = () => {
+
+// }
 
 
 /*
@@ -16,7 +35,7 @@ export const RoadObjects = ({road}: Props) => {
     return (
         <>
             { Objs.map((obj, i) => {
-                const Component = registry(obj.type)
+                const Component = objectsRegistry(obj.type)
                 return (
                     <Component key={i} {...obj.props} >
                         { obj.content && obj.content.map((item, i) => (

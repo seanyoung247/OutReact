@@ -2,6 +2,7 @@
 import { formatRoad, RoadDescriptor } from "./components/road3d";
 
 export const testRoad:RoadDescriptor = {
+
     roadSegments: formatRoad([
         { curve: 0 },
         { curve: 0 },
@@ -135,16 +136,25 @@ export const testRoad:RoadDescriptor = {
         { curve: 1.5 },
         { curve: 0 }
     ]),
+
     roadObjects: [
-        { type: "sign", props: {z:5, header: "Hello World"}, 
+        { type: "sign", props: {z:5, header: "Language Skills"}, 
             content: [
-                "Here's some dynamic sign content:", 
-                "Eventually, this will be the real sign contents!",
-                "Some more sign contents, just for you!",
+                {type: "skill-list", props: { items: [
+                    {skill: "JavaScript", grade: '(Expert City)', value: 100, display:'100m'},
+                    {skill: "HTML/CSS", grade: '(Expert City)', value: 100, display:'100m'},
+                    {skill: "TypeScript", grade: '(Advanced Avenue)', value: 80, display: '80m'},
+                    {skill: "Python", grade: '(Proficiency Parkway)', value: 70, display: '75m'},
+                ]}}
             ]
         },
         { type: "sign", props: {z:7, header: "Test 2!"}, 
             content: ["I'm a second tester!"]
+        },
+        { type: "sign", props: {z:22, header: "Far away!"},
+            content: [
+                "This sign is far away!"
+            ]
         }
     ]
 }
