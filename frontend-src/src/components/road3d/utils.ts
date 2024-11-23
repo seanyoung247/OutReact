@@ -1,31 +1,7 @@
 
-export type RoadSegmentDescriptor = {
-    curve: number,
-}[]
+import { RoadSegmentDescriptor } from "./types";
 
-export type RoadDescriptor = {
-    curve: number,
-    x: number,
-}[]
-
-export type RoadSegments = {
-    z: number,
-    bX: number,
-    tX: number,
-}
-
-export type RoadSettings = {
-    scale: number,
-    distance: number,
-    width: number,
-    count: number,
-    length: number,
-    height: number,
-    lanes: number,
-    lip: number,
-}
-
-export const formatRoad = (road:RoadSegmentDescriptor):RoadDescriptor => {
+export const formatRoad = (road:RoadSegmentDescriptor):RoadSegmentDescriptor => {
     let x = 0;
     return road.map(v => ({
         ...v, x: (x += v.curve)

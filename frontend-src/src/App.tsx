@@ -3,13 +3,13 @@
 import { RoadPosition } from './components/road3d/roadposition'
 import { Background } from './components/background'
 import { View3D } from './components/view3d'
-import { Road } from './components/road3d/road'
+import { Road } from './components/road3d'
 import { Car } from './components/objects3d/car'
 // Settings
 import { config } from './config'
 import { roadSegments } from './testRoad'
 // Utils
-import { formatRoad } from './components/road3d/utils'
+import { formatRoad } from './components/road3d'
 import { useFPS } from './hooks/fps'
 // Styles
 import './App.css'

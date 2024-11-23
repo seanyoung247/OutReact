@@ -1,6 +1,6 @@
 
 import { useContext } from 'react'
-import { RoadDescriptor, RoadSegments, RoadSettings } from "./utils"
+import { RoadSegmentDescriptor, RoadSegments, RoadSettings } from "./types"
 
 import { PositionContext } from './roadposition'
 import { RoadObjects } from '../objects3d/objects'
@@ -9,11 +9,11 @@ import { RoadTexture } from './roadtexture'
 import './road.css'
 
 type Props = {
-    road: RoadDescriptor,
+    road: RoadSegmentDescriptor,
     settings: RoadSettings
 }
 
-const getSegments = (start: number, road:RoadDescriptor, settings:RoadSettings) => {
+const getSegments = (start: number, road:RoadSegmentDescriptor, settings:RoadSettings) => {
     const segments:RoadSegments[] = []
 
     let topX = 0, baseX = 0

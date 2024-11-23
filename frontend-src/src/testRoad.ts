@@ -1,5 +1,5 @@
 
-import { RoadSegmentDescriptor } from "./components/road3d/utils";
+import { RoadSegmentDescriptor } from "./components/road3d";
 import { ObjectsType } from "./components/objects3d/templates/registry";
 
 export const roadSegments:RoadSegmentDescriptor = [
@@ -138,9 +138,13 @@ export const roadSegments:RoadSegmentDescriptor = [
 
 export const RoadObjects:ObjectsType[] = [
     { type: "sign", props: {z:5, header: "Hello World"}, 
-        content: "Ultimately, this will be the sign contents!"
+        content: [
+            "Here's some dynamic sign content:", 
+            "Eventually, this will be the real sign contents!",
+            "Some more sign contents, just for you!",
+        ]
     },
     { type: "sign", props: {z:7, header: "Test 2!"}, 
-        content: "I'm a second tester!"
+        content: ["I'm a second tester!"]
     }
 ]
