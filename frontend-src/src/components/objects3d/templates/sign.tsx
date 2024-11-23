@@ -1,7 +1,7 @@
 
 import { useContext } from 'react'
 import { PositionContext } from '../../road3d/roadposition'
-import { ObjectProps } from '../'
+import { ObjectProps } from './registry'
 
 import './sign.css'
 

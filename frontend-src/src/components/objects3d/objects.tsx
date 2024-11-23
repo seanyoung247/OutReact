@@ -1,8 +1,6 @@
 
 import { RoadObjects as Objs } from "../../testRoad"
-// import { ObjectTemplates } from "./templates"
-
-import { RoadObjects as registry } from "./templates/registry"
+import { objectsRegistry as registry } from "./templates/registry"
 
 /*
  * Manages visible road objects, info panels and decorations

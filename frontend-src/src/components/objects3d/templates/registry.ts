@@ -1,11 +1,20 @@
 
-import { registerComponent, createRegistry } from '../../../utilities/registry'
+import { registerComponent, createRegistry, RegistryTypes } from '../../../utilities/registry'
 
 import { Sign, SignProps } from './sign'
 
-
-export const objectRegistry = {
+const objectRegistry = {
     sign: registerComponent<SignProps>(Sign)
 }
 
-export const RoadObjects = createRegistry(objectRegistry)
+
+export type ObjectProps = {
+    z: number,
+    y?: number,
+    x?: number,
+    children?: React.ReactNode
+}
+
+export const objectsRegistry = createRegistry(objectRegistry)
+
+export type ObjectsType = RegistryTypes<typeof objectRegistry>
