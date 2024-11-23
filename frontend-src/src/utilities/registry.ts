@@ -17,7 +17,7 @@ export type RegistryTypes<T extends Templates> = {
         props: T[K]['props'];
         content?: Array<string | RegistryTypes<T>>;
     }
-  }[keyof T]
+}[keyof T]
 
 /*
  * Helper function for generating entries for a template registry

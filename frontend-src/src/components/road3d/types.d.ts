@@ -1,4 +1,6 @@
 
+import { RoadObjectsDescriptor } from "../objects3d/templates/registry"
+
 export type RoadSegmentDescriptor = {
     curve: number,
     x?: number,
@@ -21,7 +23,8 @@ export type RoadSettings = {
     lip: number,
 }
 
-// export type RoadDescriptor = {
-
-
-// }
+export type RoadDescriptor = {
+    roadSegments: RoadSegmentDescriptor,
+    roadObjects: RoadObjectsDescriptor[],
+    // TO DO: More here as needed
+}

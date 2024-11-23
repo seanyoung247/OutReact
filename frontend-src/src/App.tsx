@@ -7,25 +7,22 @@ import { Road } from './components/road3d'
 import { Car } from './components/objects3d/car'
 // Settings
 import { config } from './config'
-import { roadSegments } from './testRoad'
+import { testRoad } from './testRoad'
 // Utils
-import { formatRoad } from './components/road3d'
 import { useFPS } from './hooks/fps'
 // Styles
 import './App.css'
-
-const road = formatRoad(roadSegments)
 
 const App = () => {
     const fps = useFPS()
 
     return (
-        <RoadPosition road={road} length={config.scrollHeight}>
+        <RoadPosition road={testRoad} length={config.scrollHeight}>
             {config.showFPS && <div className="framerate">{ fps }</div>}
             <Background horizon={config.view.horizon}>
                 <View3D {...config.view}>
                     <Car/>
-                    <Road road={road} settings={{...config.road}}/>
+                    <Road road={testRoad} settings={{...config.road}}/>
                 </View3D>
             </Background>
         </RoadPosition>

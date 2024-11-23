@@ -10,7 +10,7 @@ const objectRegistry = {
 export const objectsRegistry = createRegistry(objectRegistry)
 
 // Object Registry types: 
-export type ObjectsType = RegistryTypes<typeof objectRegistry>
+export type RoadObjectsDescriptor = RegistryTypes<typeof objectRegistry>
 export type ObjectProps = {
     z: number,
     y?: number,

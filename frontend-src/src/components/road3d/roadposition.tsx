@@ -1,7 +1,7 @@
 
 import { createContext } from 'react'
 import { useScrollState } from '../../hooks/scroll'
-import { RoadDescriptor } from './utils'
+import { RoadDescriptor } from './types'
 import { tween } from '../../utilities/misc'
 
 
@@ -22,10 +22,10 @@ export const PositionContext = createContext(defaultScrollStatus)
 
 export const RoadPosition = ({children, length, road}:Props) => {
     const scroll = useScrollState()
-    const camZ = (scroll.progress.y / 100) * road.length
+    const camZ = (scroll.progress.y / 100) * road.roadSegments.length
     const z = Math.floor(camZ)
-    const cX = road[z % road.length].x
-    const pX = (camZ > 1) ? road[(z - 1) % road.length].x : 0
+    const cX = road.roadSegments[z % road.roadSegments.length].x ?? 0
+    const pX = ((camZ > 1) ? road.roadSegments[(z - 1) % road.roadSegments.length].x : 0) ?? 0
     const camX = tween(pX, cX, camZ - z) * 10
 
     return (

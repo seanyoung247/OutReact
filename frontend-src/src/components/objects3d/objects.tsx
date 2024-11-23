@@ -1,11 +1,18 @@
 
-import { RoadObjects as Objs } from "../../testRoad"
+import { RoadDescriptor } from "../road3d"
 import { objectsRegistry as registry } from "./templates/registry"
+
+
+type Props = {
+    road: RoadDescriptor
+}
+
 
 /*
  * Manages visible road objects, info panels and decorations
  */
-export const RoadObjects = () => {
+export const RoadObjects = ({road}: Props) => {
+    const Objs = road.roadObjects
     return (
         <>
             { Objs.map((obj, i) => {

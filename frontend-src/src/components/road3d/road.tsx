@@ -1,6 +1,6 @@
 
 import { useContext } from 'react'
-import { RoadSegmentDescriptor, RoadSegments, RoadSettings } from "./types"
+import { RoadDescriptor, RoadSegmentDescriptor, RoadSegments, RoadSettings } from "./types"
 
 import { PositionContext } from './roadposition'
 import { RoadObjects } from '../objects3d/objects'
@@ -9,7 +9,7 @@ import { RoadTexture } from './roadtexture'
 import './road.css'
 
 type Props = {
-    road: RoadSegmentDescriptor,
+    road: RoadDescriptor,
     settings: RoadSettings
 }
 
@@ -30,12 +30,12 @@ const getSegments = (start: number, road:RoadSegmentDescriptor, settings:RoadSet
 
 export const Road = ({road, settings}:Props) => {
     const {camZ} = useContext(PositionContext)
-    const z = Math.floor(camZ) % road.length
-    const segments = getSegments(z, road, settings)
+    const z = Math.floor(camZ) % road.roadSegments.length
+    const segments = getSegments(z, road.roadSegments, settings)
     const roadStyle = {
         '--bZ': z,
-        '--bC': road[z].curve,
-        '--camZ': camZ % road.length,
+        '--bC': road.roadSegments[z].curve,
+        '--camZ': camZ % road.roadSegments.length,
         '--scale': settings.scale,
         '--sW': settings.width,
         '--sH': settings.height,
@@ -45,7 +45,7 @@ export const Road = ({road, settings}:Props) => {
     
     return (
         <div className="road" style={roadStyle}>
-            <RoadObjects />
+            <RoadObjects road={road} />
             { segments.map(v => (
                 <div key={ v.z - z } className='road-segment'
                     style={ { '--myZ': v.z, '--bX': v.bX, '--tX': v.tX } }>
