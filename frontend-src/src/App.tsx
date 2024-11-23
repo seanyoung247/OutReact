@@ -14,18 +14,21 @@ import { useFPS } from './hooks/fps'
 // Styles
 import './App.css'
 
-
 const road = formatRoad(roadSegments)
 
-const App = () => (
-    <RoadPosition road={road} length='20000px'>
-        <div className="framerate">{ useFPS() }</div>
-        <Background horizon={config.view.horizon}>
-            <View3D {...config.view}>
-                <Car/>
-                <Road road={road} settings={{...config.road}}/>
-            </View3D>
-        </Background>
-    </RoadPosition>
-)
+const App = () => {
+    const fps = useFPS()
+
+    return (
+        <RoadPosition road={road} length={config.scrollHeight}>
+            {config.showFPS && <div className="framerate">{ fps }</div>}
+            <Background horizon={config.view.horizon}>
+                <View3D {...config.view}>
+                    <Car/>
+                    <Road road={road} settings={{...config.road}}/>
+                </View3D>
+            </Background>
+        </RoadPosition>
+    )
+}
 export default App

@@ -1,10 +1,11 @@
 
+import { registerComponent, createRegistry } from '../../../utilities/registry'
+
 import { Sign, SignProps } from './sign'
 
 
 export const objectRegistry = {
-    sign: {
-      component: Sign,
-      props: {} as SignProps,
-    },
+    sign: registerComponent<SignProps>(Sign)
 }
+
+export const RoadObjects = createRegistry(objectRegistry)
