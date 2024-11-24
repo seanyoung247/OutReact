@@ -1,6 +1,6 @@
 
 import { useRoadPosition } from '../../road3d'
-import { ObjectProps } from './registry'
+import { ObjectProps } from '../types'
 
 import './sign.css'
 
