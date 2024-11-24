@@ -5,6 +5,7 @@ import { RoadDescriptor } from './types'
 import { tween } from '../../utilities/misc'
 
 
+
 type Props = {
     road: RoadDescriptor,
     length: string,
@@ -15,10 +16,11 @@ export type ScrollStatus = {
     camZ: number,
     camX: number,
 }
+
 const defaultScrollStatus:ScrollStatus = {
     camZ:0, camX:0,
 }
-export const PositionContext = createContext(defaultScrollStatus)
+export const RoadPositionContext = createContext(defaultScrollStatus)
 
 export const RoadPosition = ({children, length, road}:Props) => {
     const scroll = useScrollState()
@@ -29,10 +31,10 @@ export const RoadPosition = ({children, length, road}:Props) => {
     const camX = tween(pX, cX, camZ - z) * 10
 
     return (
-        <PositionContext.Provider value={{camZ, camX}}>
+        <RoadPositionContext.Provider value={{camZ, camX}}>
             <div style={{height:length}}>
                 { children }
             </div>
-        </PositionContext.Provider>
+        </RoadPositionContext.Provider>
     )
 }

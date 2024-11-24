@@ -1,6 +1,5 @@
 
-import { useContext } from 'react'
-import { PositionContext } from '../../road3d/roadposition'
+import { useRoadPosition } from '../../road3d'
 import { ObjectProps } from './registry'
 
 import './sign.css'
@@ -10,7 +9,7 @@ export interface SignProps extends ObjectProps {
 }
 
 export const Sign = ({z, header, children}:SignProps) => {
-    const {camZ} = useContext(PositionContext)
+    const {camZ} = useRoadPosition()
 
     return (
         <div className='road-sign'

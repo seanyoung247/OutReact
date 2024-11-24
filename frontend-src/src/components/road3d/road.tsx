@@ -1,12 +1,11 @@
 
-import { useContext } from 'react'
 import { RoadDescriptor, RoadSegmentDescriptor, RoadSegments, RoadSettings } from "./types"
 
-import { PositionContext } from './roadposition'
 import { RoadObjects } from '../objects3d/objects'
 import { RoadTexture } from './roadtexture'
 
 import './road.css'
+import { useRoadPosition } from './hooks'
 
 type Props = {
     road: RoadDescriptor,
@@ -29,9 +28,11 @@ const getSegments = (start: number, road:RoadSegmentDescriptor, settings:RoadSet
 }
 
 export const Road = ({road, settings}:Props) => {
-    const {camZ} = useContext(PositionContext)
+
+    const {camZ} = useRoadPosition()
     const z = Math.floor(camZ) % road.roadSegments.length
     const segments = getSegments(z, road.roadSegments, settings)
+    
     const roadStyle = {
         '--bZ': z,
         '--bC': road.roadSegments[z].curve,

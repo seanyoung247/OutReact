@@ -1,6 +1,5 @@
 
-import { useContext } from 'react'
-import { PositionContext } from './road3d/roadposition'
+import { useRoadPosition } from './road3d'
 
 import Img from '../assets/testbackground.png'
 import './background.css'
@@ -11,7 +10,7 @@ type Props = {
 }
 
 export const Background = ({horizon, children}:Props) => {
-    const camX = -(useContext(PositionContext).camX)
+    const camX = -(useRoadPosition().camX)
 
     return (
         <div
