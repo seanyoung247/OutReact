@@ -1,22 +1,23 @@
 
+import { Config } from '../config'
+import { useSettings } from '../utilities/settings'
 import './view3d.css'
 
 type Props = {
-    width: string,
-    height: string,
-    horizon: number,
-    perspective: number,
     children: React.ReactNode,
 }
 
-export const View3D = (props: Props) => (
-    <div className="view3d"
-        style={{
-            '--w': props.width,
-            '--h': props.height,
-            '--horizon': props.horizon,
-            '--perspective': props.perspective
-        }}>
-        { props.children }
-    </div>
-)
+export const View3D = (props: Props) => {
+    const {settings:{view}} = useSettings<Config>()
+    return (
+        <div className="view3d"
+            style={{
+                '--w': view.width,
+                '--h': view.height,
+                '--horizon': view.horizon,
+                '--perspective': view.perspective
+            }}>
+            { props.children }
+        </div>
+    )
+}

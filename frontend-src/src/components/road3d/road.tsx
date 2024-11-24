@@ -4,12 +4,17 @@ import { RoadDescriptor, RoadSegmentDescriptor, RoadSegments, RoadSettings } fro
 import { RoadObjects } from '../objects3d/objects'
 import { RoadTexture } from './roadtexture'
 
-import './road.css'
 import { useRoadPosition } from './hooks'
+
+
+import './road.css'
+import { Config } from "../../config"
+import { useSettings } from "../../utilities/settings"
+
 
 type Props = {
     road: RoadDescriptor,
-    settings: RoadSettings
+    // settings: RoadSettings
 }
 
 const getSegments = (start: number, road:RoadSegmentDescriptor, settings:RoadSettings) => {
@@ -27,9 +32,11 @@ const getSegments = (start: number, road:RoadSegmentDescriptor, settings:RoadSet
     return segments
 }
 
-export const Road = ({road, settings}:Props) => {
+export const Road = ({road}:Props) => {
 
+    const {settings:{road:settings}} = useSettings<Config>()
     const {camZ} = useRoadPosition()
+    
     const z = Math.floor(camZ) % road.roadSegments.length
     const segments = getSegments(z, road.roadSegments, settings)
     

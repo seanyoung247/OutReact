@@ -11,16 +11,14 @@ export type SkillListProps = {
 }
 
 export const SkillList = ({items}:SkillListProps) => (
-    <>
-        {(items.length > 0) ? (
-            <ul>{
-                items.map((item, i) => (
-                    <li key={i}>
-                        <span className="skill">{item.skill}</span>
-                        <span className="value">{item.display ?? item.value}</span>
-                    </li>
-                ))
-            }</ul>
-        ) : (null)}
-    </>
+    (items.length > 0) ? (
+        <ul>{
+            items.map((item, i) => (
+                <li key={i}>
+                    <span className="skill">{item.skill}</span>
+                    <span className="value">{item.display ?? item.value}</span>
+                </li>
+            ))
+        }</ul>
+    ) : (null)
 )

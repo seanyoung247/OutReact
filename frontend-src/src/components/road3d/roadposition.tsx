@@ -3,13 +3,14 @@ import { createContext } from 'react'
 import { useScrollState } from '../../hooks/scroll'
 import { RoadDescriptor } from './types'
 import { tween } from '../../utilities/misc'
+import { useSettings } from '../../utilities/settings'
+import { Config } from '../../config'
 
 
 
 type Props = {
     road: RoadDescriptor,
-    length: string,
-    children?: React.ReactNode
+    children: React.ReactNode
 }
 
 export type ScrollStatus = {
@@ -22,7 +23,10 @@ const defaultScrollStatus:ScrollStatus = {
 }
 export const RoadPositionContext = createContext(defaultScrollStatus)
 
-export const RoadPosition = ({children, length, road}:Props) => {
+export const RoadPosition = ({children, road}:Props) => {
+
+    const {settings:{scrollHeight:height}} = useSettings<Config>()
+
     const scroll = useScrollState()
     const camZ = (scroll.progress.y / 100) * road.roadSegments.length
     const z = Math.floor(camZ)
@@ -32,9 +36,10 @@ export const RoadPosition = ({children, length, road}:Props) => {
 
     return (
         <RoadPositionContext.Provider value={{camZ, camX}}>
-            <div style={{height:length}}>
+            <div style={{height}}>
                 { children }
             </div>
         </RoadPositionContext.Provider>
     )
+
 }

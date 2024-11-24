@@ -3,7 +3,7 @@ import { registerComponent, createRegistry, RegistryTypes } from '../../../utili
 // Objects to be registered:
 import { Sign } from './sign'
 // Content Components to be registered:
-import { SkillList } from './skillsList'
+import { SkillList } from './skillList'
 
 // Object registration:
 const objectRegistry = {
@@ -14,14 +14,9 @@ const objectRegistry = {
 }
 export const objectsRegistry = createRegistry(objectRegistry)
 
-// Object Registry types: 
+// Object Registry types:
 export type RoadObjectsDescriptor = RegistryTypes<typeof objectRegistry>
-export type ObjectProps = {
-    z: number,
-    y?: number,
-    x?: number,
-    children?: React.ReactNode
-}
+
 
 // const renderContent = (content: Array<string | ObjectsType>, depth:number) => {
 //     return (

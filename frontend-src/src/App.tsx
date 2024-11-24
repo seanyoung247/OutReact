@@ -6,6 +6,7 @@ import { View3D } from './components/view3d'
 import { Road } from './components/road3d'
 import { Car } from './components/objects3d/car'
 // Settings
+import { Settings } from './utilities/settings'
 import { config } from './config'
 import { testRoad } from './testRoad'
 // Utils
@@ -17,15 +18,17 @@ const App = () => {
     const fps = useFPS()
 
     return (
-        <RoadPosition road={testRoad} length={config.scrollHeight}>
+        <Settings config={config}>
+        <RoadPosition road={testRoad}>
             {config.showFPS && <div className="framerate">{ fps }</div>}
             <Background horizon={config.view.horizon}>
-                <View3D {...config.view}>
+                <View3D>
                     <Car/>
-                    <Road road={testRoad} settings={{...config.road}}/>
+                    <Road road={testRoad} />
                 </View3D>
             </Background>
         </RoadPosition>
+        </Settings>
     )
 }
 export default App

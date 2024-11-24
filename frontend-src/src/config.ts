@@ -2,7 +2,7 @@
 import { RoadSettings } from "./components/road3d"
 import { ObjectSettings } from "./components/objects3d"
 
-type Config = {
+export type Config = {
     showFPS: boolean,
     scrollHeight: string,
     view: {

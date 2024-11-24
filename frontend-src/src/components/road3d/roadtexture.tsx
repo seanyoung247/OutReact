@@ -1,7 +1,7 @@
 
 import { forJSX } from '../../utilities/react'
 import { percent } from '../../utilities/misc'
-import { RoadSettings } from './utils'
+import { RoadSettings } from './types'
 
 import './roadtexture.css'
 

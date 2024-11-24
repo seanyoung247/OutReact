@@ -16,16 +16,16 @@ export type RegistryTypes<T extends Templates> = {
         type: K;
         props: T[K]['props'];
     } & (T[K]['props'] extends { children: React.ReactNode }    // Requires children
-        ? { content: Array<string | RegistryTypes<T>> }         //   content is required
+            ? { content: Array<string | RegistryTypes<T>> }     //   content is required
         : T[K]['props'] extends { children?: React.ReactNode }  // Optionally supports children
-        ? { content?: Array<string | RegistryTypes<T>> }        //   content is optional
+            ? { content?: Array<string | RegistryTypes<T>> }    //   content is optional
         : { content?: never})                                   // Does not support children/content
 }[keyof T]
 
 /*
  * Helper function for generating entries for a template registry
  */
-export const registerComponent = <T>(component: React.FC<T>) => ({
+export const registerComponent = <T>(component: Component<T>) => ({
     component, props: {} as T
 })
 
