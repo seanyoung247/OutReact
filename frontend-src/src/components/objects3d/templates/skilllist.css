@@ -1,0 +1,16 @@
+
+ul.skill-list {
+    list-style: none;
+}
+
+ul.skill-list > li {
+    display: flex;
+    justify-content: space-between;
+}
+
+li > span.grade {
+    display: flex;
+    flex: 1;
+    justify-content: end;
+    padding: 0 0.5em;
+}

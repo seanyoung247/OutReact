@@ -3,7 +3,7 @@ import { registerComponent, createRegistry, RegistryTypes } from '../../../utili
 // Objects to be registered:
 import { Sign } from './sign'
 // Content Components to be registered:
-import { SkillList } from './skillList'
+import { SkillList } from './skilllist'
 
 // Object registration:
 const objectRegistry = {

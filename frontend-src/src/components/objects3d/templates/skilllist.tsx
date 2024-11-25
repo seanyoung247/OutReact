@@ -1,4 +1,6 @@
 
+import './skilllist.css'
+
 type SkillItemList = {
     skill: string,      // The skill name
     value: number,      // Skill level, also used as display if display not given
@@ -12,10 +14,11 @@ export type SkillListProps = {
 
 export const SkillList = ({items}:SkillListProps) => (
     (items.length > 0) ? (
-        <ul>{
+        <ul className="skill-list">{
             items.map((item, i) => (
                 <li key={i}>
                     <span className="skill">{item.skill}</span>
+                    {item.grade && <span className="grade">{item.grade}</span>}
                     <span className="value">{item.display ?? item.value}</span>
                 </li>
             ))
