@@ -1,6 +1,5 @@
 
-import { Config } from '../config'
-import { useSettings } from '../utilities/settings'
+import { useSettings } from '../config'
 import './view3d.css'
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
 }
 
 export const View3D = (props: Props) => {
-    const {settings:{view}} = useSettings<Config>()
+    const {settings:{view}} = useSettings()
     return (
         <div className="view3d"
             style={{

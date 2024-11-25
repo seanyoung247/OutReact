@@ -2,9 +2,16 @@
 import { RoadSettings } from "./components/road3d"
 import { ObjectSettings } from "./components/objects3d"
 
+import { useSettings as useGenericSettings } from "./utilities/settings"
+
+
+export const useSettings = () => useGenericSettings<Config>();
+
 export type Config = {
     showFPS: boolean,
-    scrollHeight: string,
+    scroll: {
+        height: string,
+    }
     view: {
         width: string,
         height: string,
@@ -17,7 +24,9 @@ export type Config = {
 
 export const config:Config = {
     showFPS: true,              // Should the FPS counter be visible?
-    scrollHeight: '20000px',    // Scroll distance
+    scroll: {
+        height: '20000px',      // Scroll distance
+    },
     view: {
         width: '100%',          // CSS 3D view width
         height: '100lvh',       // CSS 3D view height
@@ -43,3 +52,4 @@ export const config:Config = {
         maxDepth: 3,            // Maximum depth of nested child objects
     }
 }
+
