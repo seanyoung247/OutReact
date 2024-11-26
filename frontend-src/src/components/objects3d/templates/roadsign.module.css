@@ -3,35 +3,43 @@
     --sign-color: white;
     --sign-background: #389C81;
 
-    position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 25%; left: 50%;
     width: min(100%, 100lvh);
 
     color: var(--sign-color);
-    background-color: var(--sign-background);
     font-size: 2em;
-
-    transform: translate3d(
-        -50%,
-        -50%,
-        calc((var(--z) - (var(--camZ))) * (0lvh - 5lvh))
-    );
 }
 
 .sign-header {
     align-self: flex-end;
     padding: 0 10px;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     text-transform: uppercase;
     border: 2px solid var(--sign-color);
-    translate: 12px -12px;
+    border-bottom: none;
 }
 
 .sign-content {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    margin: 1px;
     border-radius: 10px;
     border: 2px solid var(--sign-color);
+}
+
+.sign-back { position: relative;}
+.sign-back::before {
+    content: '';
+    position: absolute;
+    top:-2px; left:-2px;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background-color: var(--sign-background);
+}
+
+.header {
+    border-radius: 10px 0 10px 10px;
 }

@@ -4,6 +4,10 @@ export const CSSFeatures = {
 }
 
 type cssDec = string | boolean | undefined | null
-export const classList = (...classes:cssDec[]) => (
+export const cl = (...classes:cssDec[]) => (
     classes.filter(v => v).join(' ')
 );
+
+export const clt = (strings:TemplateStringsArray, ...values:cssDec[]) => (
+    strings.reduce((a,c,i) => a + c + (values[i] || ''), '')
+)

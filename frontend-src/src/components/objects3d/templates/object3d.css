@@ -1,0 +1,10 @@
+
+.object3d {
+    position: absolute;
+
+    transform: translate3d(
+        -50%,
+        -50%,
+        calc((var(--z) - (var(--camZ))) * (0lvh - 5lvh))
+    );
+}
