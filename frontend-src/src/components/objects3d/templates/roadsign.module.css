@@ -17,7 +17,7 @@
     padding: 0 10px;
     border-radius: 10px 10px 0 0;
     text-transform: uppercase;
-    border: 2px solid var(--sign-color);
+    border: 4px solid var(--sign-color);
     border-bottom: none;
 }
 
@@ -26,17 +26,17 @@
     flex-direction: column;
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid var(--sign-color);
+    border: 4px solid var(--sign-color);
 }
 
 .sign-back { position: relative;}
 .sign-back::before {
     content: '';
     position: absolute;
-    top:-2px; left:-2px;
+    top:-4px; left:-4px;
     z-index: -1;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
     background-color: var(--sign-background);
 }
 
