@@ -1,0 +1,25 @@
+
+.badge-base {
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 5;
+}
+.badge-red {
+    fill: #af1e2d;
+}
+.badge-blue {
+    fill: #003f87;
+}
+.text {
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    text-anchor: middle;
+    fill: #ffffff;
+}
+.top.text {
+    font-size: 22px;
+}
+.number.text {
+    font-size: 75px;
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xml:space="preserve"
+   width="601"
+   height="601"
+   version="1.0"
+   viewBox="0 0 600 599.99902"
+   id="svg5"
+   sodipodi:docname="Interstate Badge.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   inkscape:export-filename="Interstate Badge.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+   id="namedview5"
+   pagecolor="#505050"
+   bordercolor="#eeeeee"
+   borderopacity="1"
+   inkscape:showpageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="1.6655574"
+   inkscape:cx="258.47203"
+   inkscape:cy="289.39261"
+   inkscape:window-width="2173"
+   inkscape:window-height="1217"
+   inkscape:window-x="91"
+   inkscape:window-y="79"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="svg5" />
+  <defs
+   id="defs1">
+    <path
+   id="a"
+   d="M80.75293 0c34.67578 10.583496 71.48486 16.276856 109.62402 16.276856 38.13868 0 74.94727-5.69336 109.62305-16.2763677C334.67578 10.583496 371.48438 16.276856 409.62305 16.276856c38.13867 0 74.94824-5.69336 109.62402-16.276856C569.8125 63.908203 600 144.67822 600 232.5c0 181.42383-128.83008 332.75391-300 367.49902C128.83008 565.25391 0 413.92383 0 232.5 0 144.67822 30.187988 63.907715 80.75293 0z" />
+  </defs>
+  <use
+   xlink:href="#a"
+   id="use1"
+   style="stroke:none;stroke-opacity:1;fill:#ffffff;fill-opacity:1"
+   transform="matrix(0.998336,0,0,0.998338,0.499168,0.498686)"
+   inkscape:label="Base" />
+  <path
+   fill="#003f87"
+   d="m 12.978321,231.22182 c 0,-32.30782 4.198994,-63.63152 12.079666,-93.45211 H 574.9402 c 7.87969,29.82059 12.07918,61.14429 12.07918,93.45211 0,174.88541 -123.03999,320.93831 -287.02053,355.79799 C 136.01881,552.16013 12.978321,406.10723 12.978321,231.22182 Z"
+   id="path2"
+   style="stroke:none;stroke-width:0.999997"
+   inkscape:label="Blue" />
+  <path
+   fill="#af1e2d"
+   d="M 27.953307,125.29054 C 40.361892,85.005141 59.381171,47.680813 83.722724,14.626564 117.23945,24.007298 152.54296,29.019651 189.0009,29.019651 c 38.53791,0 75.78641,-5.599652 110.99796,-16.041637 35.21155,10.441985 72.46005,16.041637 110.99796,16.041637 36.45745,0 71.76194,-5.012353 105.27867,-14.393087 24.34057,33.054249 43.36034,70.378577 55.76892,110.663976 z"
+   id="path3"
+   style="stroke:none;stroke-width:0.999997"
+   inkscape:label="Red" />
+  
+  
+<text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:332.77870216px;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.65986;stroke-linecap:round;stroke-dashoffset:8.50394;stroke-opacity:1;paint-order:stroke markers fill"
+   x="299.99884"
+   y="456.11877"
+   id="text5"
+   inkscape:label="Number"><tspan
+     sodipodi:role="line"
+     id="tspan5"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans Bold';text-align:center;text-anchor:middle;stroke-width:5.65986;font-size:332.77870216px"
+     x="299.99884"
+     y="456.11877">5</tspan></text><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.54242929px;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans Bold';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.65986;stroke-linecap:round;stroke-dashoffset:8.50394;stroke-opacity:1;paint-order:stroke markers fill"
+   x="301.2858"
+   y="109.3563"
+   id="text6"
+   inkscape:label="Top Text"><tspan
+     sodipodi:role="line"
+     id="tspan6"
+     style="stroke-width:5.65986;font-size:74.54242929px"
+     x="301.2858"
+     y="109.3563">INTERSTATE</tspan></text></svg>

@@ -1,0 +1,22 @@
+
+.skill-badges {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 5%;
+    padding: 1em 0;
+}
+
+.skill-badge {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-weight: bold;
+    flex: 1 1 0;
+    gap: 0.5em;
+    width: 0;
+}
+
+.skill-badge > svg {
+    max-width: 75%;
+}
