@@ -149,11 +149,23 @@ export const testRoad:RoadDescriptor = {
             ]
         },
         { type: "road-sign", props: {z:7, header: "Frameworks"}, 
-            content: []
+            content: [
+                {type: "skill-list", props: {items: [
+                    {skill: "React", value: 90, grade:"(Advanced)", display: "90m"},
+                    {skill: "Vue", value: 50, grade:"(Proficient)", display: "50m"},
+                    {skill: "Django", value: 65, grade:"(Proficient)", display: "65m"},
+                    {skill: "Flask", value: 70, grade:"(Proficient)", display: "70m"},
+                ]}}
+            ]
         },
         { type: "road-sign", props: {z:22, header: "Far away!"},
             content: [
                 "This sign is far away!"
+            ]
+        },
+        { type: "road-sign", props: {z:25, header: "Very Far away!"},
+            content: [
+                "This sign is even further away!"
             ]
         }
     ]
