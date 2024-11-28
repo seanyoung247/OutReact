@@ -1,8 +1,6 @@
 
 import React from "react"
 
-type Component<T> = React.FC<T>
-
 type Templates = Record<string, {component: unknown, props: unknown}>
 
 // Maps allowable prop types to component names
@@ -25,7 +23,7 @@ export type RegistryTypes<T extends Templates> = {
 /*
  * Helper function for generating entries for a template registry
  */
-export const registerComponent = <T>(component: Component<T>) => ({
+export const registerComponent = <T>(component: React.FC<T>) => ({
     component, props: {} as T
 })
 
@@ -36,20 +34,21 @@ export const registerComponent = <T>(component: Component<T>) => ({
  * @returns Accessor function that returns registered components based on name
  */
 export const createRegistry = <T extends Templates>(templates: T) => {
-    const registry = new Map<string, Component<TypeMap<T>[keyof TypeMap<T>]>>()
+    type Component = React.FC<TypeMap<T>[keyof TypeMap<T>]>
+    const registry = new Map<string, Component>()
 
     const register = <K extends keyof TypeMap<T>>(
-        name: string, component: Component<TypeMap<T>[K]>
+        name: string, component: React.FC<TypeMap<T>[K]>
     ) => {
         registry.set(name, component)
     }
 
     // Insert all the passed templates into the map
     Object.keys(templates).forEach(key => {
-        register(key, templates[key].component as Component<TypeMap<T>[keyof TypeMap<T>]>)
+        register(key, templates[key].component as Component)
     })
 
-    return (name: string): Component<TypeMap<T>[keyof TypeMap<T>]> => {
+    return (name: string): Component => {
 
         const component = registry.get(name)
         if (!component) throw new Error(`Requested component (${name}) not registered!`)

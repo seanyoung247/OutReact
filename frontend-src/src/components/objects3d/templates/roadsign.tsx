@@ -1,47 +1,40 @@
 
 import { useRoadPosition } from '../../road3d'
 import { ObjectProps } from '../types'
+import { Sprite } from './sprite'
 import { cl } from '../../../utilities/css'
 
 import Styles from './roadsign.module.css'
-import './object3d.css'
-
 
 export interface SignProps extends ObjectProps {
     header?: string
 }
 
-export const RoadSign = ({x, y, z, header, children}: SignProps) => {
+export const RoadSign = (props: SignProps) => {
     const {camZ} = useRoadPosition()
 
     return (
-        <section className={cl(
-                Styles['road-sign'],
-                'object3d'
-            )}
-            style={{
-                '--x': x ?? 0,
-                '--y': y ?? 0,
-                '--z': z,
-                '--camZ': camZ,
-            }}
-        >
-            {header && 
-                <h3 className={cl(
-                    Styles['sign-header'], 
-                    Styles['sign-back']
+        <Sprite {...props}>
+            <section className={Styles['road-sign']}
+                style={{ '--camZ': camZ }}
+            >
+                {props.header && 
+                    <h3 className={cl(
+                        Styles['sign-header'], 
+                        Styles['sign-back']
+                    )}>
+                        { props.header }
+                    </h3>
+                }
+                <p className={cl(
+                    Styles['sign-content'], 
+                    Styles['sign-back'], 
+                    props.header && Styles['header']
                 )}>
-                    { header }
-                </h3>
-            }
-            <p className={cl(
-                Styles['sign-content'], 
-                Styles['sign-back'], 
-                header && Styles['header']
-            )}>
-                { children }
-            </p>
-            
-        </section>
+                    { props.children }
+                </p>
+                
+            </section>
+        </Sprite>
     )
 }

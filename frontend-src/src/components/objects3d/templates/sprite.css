@@ -1,10 +1,10 @@
 
-.object3d {
+.sprite {
     position: absolute;
-
+    width: 100%; height: 100%;
     transform: translate3d(
-        -50%,
-        -50%,
+        0,
+        0,
         calc((var(--z) - (var(--camZ))) * (0lvh - 5lvh))
     );
 }

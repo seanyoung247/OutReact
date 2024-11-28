@@ -5,7 +5,11 @@
 
     display: flex;
     flex-direction: column;
-    top: 25%; left: 50%;
+
+    position: absolute;
+    top: 0%; left: 50%;
+    translate: -50%;
+
     width: min(100%, 100lvh);
 
     color: var(--sign-color);
