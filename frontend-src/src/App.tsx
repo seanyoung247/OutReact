@@ -14,6 +14,7 @@ import { useFPS } from './hooks/fps'
 // Styles
 import './App.css'
 
+
 const App = () => {
     const fps = useFPS()
 

@@ -50,6 +50,7 @@ export const config:Config = {
     },
     objects: {
         maxDepth: 3,            // Maximum depth of nested child objects
+        maxObjects: 50,         // Maximum objects to be shown on screen at once
     }
 }
 

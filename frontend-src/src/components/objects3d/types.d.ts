@@ -1,11 +1,12 @@
 
 export type ObjectSettings = {
-    maxDepth: number
+    maxDepth: number;
+    maxObjects: number;
 }
 
 export type ObjectProps = {
-    z: number,
-    y?: number,
-    x?: number,
-    children?: React.ReactNode
+    z: number;
+    y?: number;
+    x?: number;
+    children?: React.ReactNode;
 }

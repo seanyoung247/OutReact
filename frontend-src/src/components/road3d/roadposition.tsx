@@ -27,10 +27,10 @@ export const RoadPosition = ({children, road}:Props) => {
     const {settings:{scroll:{height}}} = useSettings()
 
     const scroll = useScrollState()
-    const camZ = (scroll.progress.y / 100) * road.roadSegments.length
+    const camZ = (scroll.progress.y / 100) * road.length
     const z = Math.floor(camZ)
-    const cX = road.roadSegments[z % road.roadSegments.length].x ?? 0
-    const pX = ((camZ > 1) ? road.roadSegments[(z - 1) % road.roadSegments.length].x : 0) ?? 0
+    const cX = road.segments[z % road.segments.length].x ?? 0
+    const pX = ((camZ > 1) ? road.segments[(z - 1) % road.segments.length].x : 0) ?? 0
     const camX = tween(pX, cX, camZ - z) * 10
 
     return (

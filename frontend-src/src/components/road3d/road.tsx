@@ -1,5 +1,5 @@
 
-import { RoadDescriptor, RoadSegmentDescriptor, RoadSegments, RoadSettings } from "./types"
+import { RoadDescriptor, RoadLayout, VisibleSegments, RoadSettings } from "./types"
 
 import { RoadObjects } from '../objects3d/objects'
 import { RoadTexture } from './roadtexture'
@@ -12,18 +12,18 @@ import './road.css'
 
 type Props = {
     road: RoadDescriptor,
-    // settings: RoadSettings
 }
 
-const getSegments = (start: number, road:RoadSegmentDescriptor, settings:RoadSettings) => {
-    const segments:RoadSegments[] = []
+const getSegments = (start: number, road:RoadLayout[], settings:RoadSettings) => {
+    const segments:VisibleSegments[] = []
 
     let topX = 0, baseX = 0
     const last = start + settings.count
     for (let z = start; z < last; z++) {
         const seg = road[z % road.length]
         segments.push({
-            z: z, bX: baseX, tX: (baseX += topX)
+            z: z, bX: baseX, tX: (baseX += topX),
+            roadObjects: seg.roadObjects
         })
         topX += seg.curve
     }
@@ -35,13 +35,13 @@ export const Road = ({road}:Props) => {
     const {settings:{road:settings}} = useSettings()
     const {camZ} = useRoadPosition()
 
-    const z = Math.floor(camZ) % road.roadSegments.length
-    const segments = getSegments(z, road.roadSegments, settings)
+    const z = Math.floor(camZ) % road.segments.length
+    const segments = getSegments(z, road.segments, settings)
     
     const roadStyle = {
         '--bZ': z,
-        '--bC': road.roadSegments[z].curve,
-        '--camZ': camZ % road.roadSegments.length,
+        '--bC': road.segments[z].curve,
+        '--camZ': camZ % road.segments.length,
         '--scale': settings.scale,
         '--sW': settings.width,
         '--sH': settings.height,
@@ -51,7 +51,7 @@ export const Road = ({road}:Props) => {
     
     return (
         <div className="road" style={roadStyle}>
-            <RoadObjects road={road} />
+            <RoadObjects segments={segments} />
             { segments.map(v => (
                 <div key={ v.z - z } className='road-segment'
                     style={ { '--myZ': v.z, '--bX': v.bX, '--tX': v.tX } }>

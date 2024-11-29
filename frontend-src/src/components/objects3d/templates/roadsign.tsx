@@ -26,13 +26,13 @@ export const RoadSign = (props: SignProps) => {
                         { props.header }
                     </h3>
                 }
-                <p className={cl(
+                <div className={cl(
                     Styles['sign-content'], 
                     Styles['sign-back'], 
                     props.header && Styles['header']
                 )}>
                     { props.children }
-                </p>
+                </div>
                 
             </section>
         </Sprite>
