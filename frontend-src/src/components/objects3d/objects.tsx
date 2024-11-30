@@ -1,50 +1,30 @@
 
-import { useSettings } from "../../config"
-import { VisibleSegments } from "../road3d"
-import { objectsRegistry, RoadObjectsDesc, ContentList, ObjectDesc} from "./templates/registry"
-import { ObjectSettings } from "./types";
+import { DynamicObject } from "./dynamic";
 
+import { useSettings } from "../../config"
+
+import { ObjectSettings } from "./types";
+import { VisibleSegments } from "../road3d"
+import { RoadObjectsDesc} from "./templates/registry"
 
 type Props = {
     segments: VisibleSegments[];   // Currently visible road segments
 }
 
-const renderContent = (content: ContentList, depth: number, maxDepth: number) => {
-    if (depth >= maxDepth) {
-        return null
-    }
-
-    return (
-        content.map((item, i) => 
-            typeof item === 'string' ? (
-                <span key={i}>{item}</span>
-            ) : (
-                <DynamicObject key={i} obj={item} depth={depth+1}/>
-            )
-        )
-    )
-}
-
-const DynamicObject = ({ obj, depth }: { obj: ObjectDesc, depth:number }) => {
-    const {settings:{objects}} = useSettings()
-    const Component = objectsRegistry(obj.type)
-
-    return (
-        <Component {...obj.props}>
-            {obj.content && renderContent(obj.content, depth, objects.maxDepth)}
-        </Component>
-    )
-}
-
 const getVisibleObjects = (segments: VisibleSegments[], settings:ObjectSettings) => {
     const objects: RoadObjectsDesc[] = []
 
+    // Iterate over visible road segments
     for (let i = 0; i < segments.length; i++) {
         const segObj = segments[i].roadObjects
         if (segObj) {
+            // Pull out the objects at this segment location 
+            // and add them to the visible object list
             for (let j = 0; j < segObj.length; j++) {
+                // Inject segment x position for positioned objects
                 segObj[j].props.x = segments[i].bX
                 objects.push(segObj[j])
+                // If the visible object list is too long, bail
                 if (objects.length >= settings.maxObjects) {
                     return objects
                 }
@@ -70,7 +50,7 @@ export const RoadObjects = ({segments}: Props) => {
 }
 
 /*
- * Produces scroll stops for all objects content objects on the road 
+ * Produces scroll stops for all content objects on the road 
  */
 export const RoadStops = () => {
     return ( <></> )

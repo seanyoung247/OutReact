@@ -15,10 +15,14 @@ import { useFPS } from './hooks/fps'
 import './App.css'
 
 
+import Shield from "./assets/templates/road-shield.svg?react"
+
+
 const App = () => {
     const fps = useFPS()
 
-    return (
+    return (<>
+        <Shield />
         <Settings config={config}>
         <RoadPosition road={testRoad}>
             {config.showFPS && <div className="framerate">{ fps }</div>}
@@ -30,6 +34,6 @@ const App = () => {
             </Background>
         </RoadPosition>
         </Settings>
-    )
+    </>)
 }
 export default App

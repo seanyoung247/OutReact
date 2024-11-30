@@ -1,13 +1,14 @@
 
 import { registerComponent, createRegistry, RegistryTypes } from '../../../utilities/registry'
+
 // Objects to be registered:
 import { RoadSign } from './roadsign'
+
 // Content Components to be registered:
 import { SkillList } from './skilllist'
 import { RoadBadge } from './roadbadge'
 import { SkillBadges } from './skillbadges'
 
-// Object registration:
 // Road positioned components
 const objectRegistry = {
     "road-sign": registerComponent(RoadSign),
