@@ -159,12 +159,20 @@ const roadObjects:RoadObjectsDescriptor[] = [
     },
     { type: "road-sign", props: {z:22, header: "Far away!"},
         content: [
-            "This sign is far away!"
+            "This sign is far away!", 
+            "More lines...",
+            "And some more",
+            "This is a line of text",
         ]
     },
     { type: "road-sign", props: {z:25, header: "Very Far away!"},
         content: [
             "This sign is even further away!"
+        ]
+    },
+    { type: "road-sign", props: {z:55, header: "Curvy!"},
+        content: [
+            "This sign is on a curve!"
         ]
     }
 ]

@@ -17,10 +17,12 @@ export type Config = {
         height: string,
         perspective: number,
         horizon: number,
+        distance: number,
     },
     road: RoadSettings,
     objects: ObjectSettings,
 }
+
 
 export const config:Config = {
     showFPS: true,              // Should the FPS counter be visible?
@@ -32,6 +34,7 @@ export const config:Config = {
         height: '100lvh',       // CSS 3D view height
         perspective: 4,         // Perspective distance in lvh
         horizon: 35,            // Horizon position (percent from bottom)
+        distance: 20,           // Maximum view distance in segments
     },
     road: {
         scale: 4,               // Road Scaling factor
