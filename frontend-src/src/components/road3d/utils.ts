@@ -1,6 +1,6 @@
 
 import { ObjectProps } from "../objects3d";
-import { RoadObjectsDescriptor } from "../objects3d/templates/registry";
+import { RoadObjectsDesc } from "../objects3d/templates/registry";
 import { RoadDescriptor, RoadLayout } from "./types";
 
 
@@ -9,7 +9,7 @@ const isZPositioned = (z:number, length:number) => (z !== undefined && z >= 0 &&
 export const formatRoad = (
     length:number,
     road: RoadLayout[],
-    objects: RoadObjectsDescriptor[]
+    objects: RoadObjectsDesc[]
 ):RoadDescriptor => {
 
     let x = 0;

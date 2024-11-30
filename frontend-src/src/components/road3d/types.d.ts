@@ -1,5 +1,5 @@
 
-import { RoadObjectsDescriptor } from "../objects3d/templates/registry"
+import { RoadObjectsDesc } from "../objects3d/templates/registry"
 
 export type RoadSegmentDescriptor = {
     curve: number;
@@ -27,7 +27,7 @@ export type RoadLayout = {
     curve: number;
     x?: number;
     // Attached Objects:
-    roadObjects?: RoadObjectsDescriptor[];
+    roadObjects?: RoadObjectsDesc[];
 }
 
 export type VisibleSegments = {
@@ -35,7 +35,7 @@ export type VisibleSegments = {
     bX: number;
     tX: number;
     // Attached Objects:
-    roadObjects?: RoadObjectsDescriptor[];
+    roadObjects?: RoadObjectsDesc[];
 }
 
 export type RoadDescriptor = {

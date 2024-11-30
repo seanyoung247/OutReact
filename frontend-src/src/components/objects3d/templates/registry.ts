@@ -8,15 +8,24 @@ import { RoadBadge } from './roadbadge'
 import { SkillBadges } from './skillbadges'
 
 // Object registration:
+// Road positioned components
 const objectRegistry = {
-    // Road Objects:
     "road-sign": registerComponent(RoadSign),
-    // Content Components:
+}
+// Content components:
+const contentRegistry = {
     "skill-list": registerComponent(SkillList),
     "road-badge": registerComponent(RoadBadge),
     "skill-badges": registerComponent(SkillBadges),
 }
-export const objectsRegistry = createRegistry(objectRegistry)
-
 // Object Registry types:
-export type RoadObjectsDescriptor = RegistryTypes<typeof objectRegistry>
+export type ContentList = Array<string | ContentObjectDesc>
+export type ContentObjectDesc = RegistryTypes<typeof contentRegistry, ContentList>
+export type RoadObjectsDesc = RegistryTypes<typeof objectRegistry, ContentList>
+export type ObjectDesc = RoadObjectsDesc | ContentObjectDesc
+
+// Get registry accessor
+export const objectsRegistry = createRegistry({
+    ...objectRegistry,
+    ...contentRegistry
+})

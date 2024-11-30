@@ -17,10 +17,7 @@ export type ScrollStatus = {
     camX: number,
 }
 
-const defaultScrollStatus:ScrollStatus = {
-    camZ:0, camX:0,
-}
-export const RoadPositionContext = createContext(defaultScrollStatus)
+export const RoadPositionContext = createContext({camZ:0, camX:0,})
 
 export const RoadPosition = ({children, road}:Props) => {
 
