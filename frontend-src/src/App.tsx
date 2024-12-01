@@ -9,12 +9,9 @@ import { testRoad } from './testRoad'
 // Styles
 import './App.css'
 
-// import Shield from "./assets/templates/road-shield.svg?react"
-
 
 const App = () => (
     <Settings config={config}>
-        {/* <Shield /> */}
         <RoadPosition road={testRoad}>
             <Scene road={testRoad} />
         </RoadPosition>

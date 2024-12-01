@@ -15,17 +15,3 @@ html {
   scroll-behavior: smooth; 
 }
 
-.framerate {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 99;
-}
-
-.skills-list {
-  list-style: none;
-}
-.skills-list > li {
-  display: flex;
-  justify-content: space-between;
-}

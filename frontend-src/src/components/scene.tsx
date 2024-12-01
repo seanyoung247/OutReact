@@ -10,6 +10,7 @@ import { useFPS } from '../hooks/fps'
 import { RoadDescriptor } from "./road3d";
 import { useSettings } from '../config'
 
+import "./scene.css"
 
 type Props = {
     road: RoadDescriptor
