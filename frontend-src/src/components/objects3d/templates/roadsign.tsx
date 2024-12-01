@@ -5,6 +5,7 @@ import { Sprite } from './sprite'
 import { cl } from '../../../utilities/css'
 
 import Styles from './roadsign.module.css'
+import { Gantry } from './gantry'
 
 export interface SignProps extends ObjectProps {
     header?: string
@@ -15,6 +16,7 @@ export const RoadSign = (props: SignProps) => {
 
     return (
         <Sprite {...props}>
+            <Gantry className={Styles['gantry']} />
             <section className={Styles['road-sign']}
                 style={{ '--camZ': camZ }}
             >

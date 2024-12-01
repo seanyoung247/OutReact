@@ -13,7 +13,6 @@
             0,
             calc(var(--cam-distance) * (var(--sL) * -1lvh))
         );
-
     /* Fade in */
     opacity: clamp(0, calc((var(--maxZ) - 1) - var(--cam-distance)), 1);
 }

@@ -52,10 +52,10 @@ export const RoadTexture = ({lanes, length, height, lip}:RoadSettings) => {
 
     return (
         <svg className='road-texture'
-            version="1.0" 
+            xmlns="http://www.w3.org/2000/svg" 
+            preserveAspectRatio='none'
             viewBox='0 0 100 100'
-            preserveAspectRatio='none'>
-            
+        >
             <use href="#road-texture-svg"/>
         </svg>
     )

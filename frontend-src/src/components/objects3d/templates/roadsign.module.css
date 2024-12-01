@@ -37,13 +37,17 @@
 .sign-back::before {
     content: '';
     position: absolute;
-    top:-4px; left:-4px;
+    inset: -5px;                                                                                                                                                                                                                                                                                                                                                                                                                               
     z-index: -1;
-    width: calc(100% + 8px);
-    height: calc(100% + 8px);
     background-color: var(--sign-background);
 }
 
 .header {
     border-radius: 10px 0 10px 10px;
+}
+
+svg.gantry {
+    left: -12.5%;
+    width: 125%;
+    max-width: 125%;
 }

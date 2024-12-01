@@ -9,22 +9,24 @@ const isZPositioned = (z:number, length:number) => (
 )
 
 export const formatRoad = (
-    length:number,
+    length: number,
     road: RoadLayout[],
     objects: RoadObjectsDesc[]
-):RoadDescriptor => {
-
+): RoadDescriptor => {
+    // Generate absolute x offset from cummulative curve
     let x = 0;
     const segments:RoadLayout[] = road.map(v => ({
         ...v, x: (x += v.curve)
     }))
-
+    // Pin road objects to nearest segment
     objects.forEach(v => {
         const props = v.props as ObjectProps
-
+        const z = Math.floor(props.z)
         if (isZPositioned(props.z, road.length)) {
-            if (!segments[props.z].roadObjects) segments[props.z].roadObjects = []
+            if (!segments[z].roadObjects) segments[props.z].roadObjects = []
             segments[props.z].roadObjects?.push(v)
+        } else {
+            console.warn('Invalid component found n road objects!')
         }
     })
 

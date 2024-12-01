@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="500" height="300">
+  <!-- Gantry Legs -->
+  <rect x="100" y="200" width="20" height="100" fill="#606060" />
+  <rect x="380" y="200" width="20" height="100" fill="#606060" />
+
+  <!-- Gantry Crossbeam -->
+  <rect x="50" y="180" width="400" height="20" fill="#505050" />
+
+  <!-- Sign Background -->
+  <rect x="150" y="100" width="200" height="80" fill="#E0E0E0" stroke="#A0A0A0" stroke-width="2" rx="5" />
+  
+  <!-- Optional: Bolts or Fasteners -->
+  <circle cx="160" cy="110" r="2" fill="#808080" />
+  <circle cx="340" cy="110" r="2" fill="#808080" />
+  <circle cx="160" cy="170" r="2" fill="#808080" />
+  <circle cx="340" cy="170" r="2" fill="#808080" />
+</svg>
