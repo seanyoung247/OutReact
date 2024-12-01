@@ -36,12 +36,22 @@ const SVGLibrary = (() => {
     }
 })()
 
+/**
+ * Inserts a new definition into the SVG library
+ * @param id - String name for the def
+ * @param content - String of SVG tags
+ */
 export const useSVGDef = (id:string, content:string) => {
     useEffect(() => {
         SVGLibrary.addDef(id, content)
     }, [id,content])
 }
 
+/**
+ * Inserts or updates an existing definition in the SVG library
+ * @param id - String name for the def 
+ * @param content - String of SVG tags
+ */
 export const useUpdateSVGDef = (id:string, content:string) => {
     useEffect(() => {
         SVGLibrary.updateDef(id, content)

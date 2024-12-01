@@ -3,7 +3,7 @@ import { useAnimationFrame } from './frame'
 import { useRef, useState } from 'react'
 
 /*
- * Provides frame count over the last second
+ * Hook that provides average frame count over the last second
  */
 export const useFPS = () => {
     const lastTime = useRef(performance.now())

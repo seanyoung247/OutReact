@@ -2,7 +2,7 @@
 import { createContext } from 'react'
 import { useScrollState } from '../../hooks/scroll'
 import { RoadDescriptor } from './types'
-import { tween } from '../../utilities/misc'
+import { tween } from '../../utilities/math'
 import { useSettings } from "../../config"
 
 

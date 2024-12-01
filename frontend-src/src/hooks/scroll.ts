@@ -64,7 +64,7 @@ const options = ({ passive: true } as unknown) as EventListenerOptions
 // Hooks
 //
 /*
- * Updates component with current scroll data
+ * Hook that updates component with current scroll data
  */
 export const useScrollState = () => {
     const [scroll, setScroll] = useState<ScrollData>(defaultScrollData())
@@ -72,8 +72,9 @@ export const useScrollState = () => {
     return scroll
 }
 
-/*
- * Runs a callback function as the window scroll state changes
+/**
+ * Hook that calls a callback function when the window scroll state changes
+ * @param effect - Callback
  */
 export const useScrollPosition = (effect: ScrollCallback) => {
     const scrollData = useRef<ScrollData>(defaultScrollData())
@@ -93,8 +94,11 @@ export const useScrollPosition = (effect: ScrollCallback) => {
     }, [effect])
 }
 
-/*
- * Runs a callback function when if scroll data has changed since the last animation frame
+/**
+ * Hook that calls a callback function when if scroll data has changed since 
+ * the last animation frame
+ * 
+ * @param effect - Callback
  */
 export const useScrollAnimation = (effect: ScrollCallback) => {
     const scrollData = useRef<ScrollData>(defaultScrollData())

@@ -4,7 +4,9 @@ import { RoadObjectsDesc } from "../objects3d/templates/registry";
 import { RoadDescriptor, RoadLayout } from "./types";
 
 
-const isZPositioned = (z:number, length:number) => (z !== undefined && z >= 0 && z < length)
+const isZPositioned = (z:number, length:number) => (
+    z !== undefined && z >= 0 && z < length
+)
 
 export const formatRoad = (
     length:number,
