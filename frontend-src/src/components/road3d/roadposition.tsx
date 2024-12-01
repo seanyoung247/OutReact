@@ -6,7 +6,6 @@ import { tween } from '../../utilities/misc'
 import { useSettings } from "../../config"
 
 
-
 type Props = {
     road: RoadDescriptor,
     children: React.ReactNode
