@@ -16,7 +16,7 @@ export const RoadSign = (props: SignProps) => {
 
     return (
         <Sprite {...props}>
-            <Gantry className={Styles['gantry']} />
+            <Gantry className={cl(Styles['sign'], Styles['road-gantry'])} />
             <section className={Styles['road-sign']}
                 style={{ '--camZ': camZ }}
             >
