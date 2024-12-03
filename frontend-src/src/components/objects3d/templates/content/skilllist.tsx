@@ -8,7 +8,7 @@ type SkillItemList = {
     display?: string,   // Skill level to display
 }[]
 
-export type SkillListProps = {
+type SkillListProps = {
     items: SkillItemList,
 }
 

@@ -1,6 +1,6 @@
 
 import { ObjectProps } from "../objects3d";
-import { RoadObjectsDesc } from "../objects3d/templates/registry";
+import { RoadObjectDesc } from "../objects3d/templates/registry";
 import { RoadDescriptor, RoadLayout } from "./types";
 
 
@@ -11,7 +11,7 @@ const isZPositioned = (z:number, length:number) => (
 export const formatRoad = (
     length: number,
     road: RoadLayout[],
-    objects: RoadObjectsDesc[]
+    objects: RoadObjectDesc[]
 ): RoadDescriptor => {
     // Generate absolute x offset from cummulative curve
     let x = 0;
@@ -29,6 +29,7 @@ export const formatRoad = (
             console.warn('Invalid component found n road objects!')
         }
     })
+    // Insert named content list
 
     return { length, segments }
 }

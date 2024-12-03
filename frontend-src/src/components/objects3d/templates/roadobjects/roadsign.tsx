@@ -1,13 +1,13 @@
 
-import { useRoadPosition } from '../../road3d'
-import { ObjectProps } from '../types'
+import { useRoadPosition } from '../../../road3d'
+import { ObjectProps } from '../../types'
 import { Sprite } from './sprite'
-import { cl } from '../../../utilities/css'
+import { cl } from '../../../../utilities/css'
 
 import Styles from './roadsign.module.css'
 import { Gantry } from './gantry'
 
-export interface SignProps extends ObjectProps {
+interface SignProps extends ObjectProps {
     header?: string
 }
 

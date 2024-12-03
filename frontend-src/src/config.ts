@@ -32,7 +32,7 @@ export const config:Config = {
     view: {
         width: '100%',          // CSS 3D view width
         height: '100lvh',       // CSS 3D view height
-        perspective: 3,         // Perspective distance in lvh
+        perspective: 4,         // Perspective distance in lvh
         horizon: 35,            // Horizon position (percent from bottom)
         distance: 20,           // Maximum view distance in segments
     },

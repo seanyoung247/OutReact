@@ -1,7 +1,7 @@
 
-import { useSettings } from '../../../config'
-import { useRoadPosition } from '../../road3d'
-import { ObjectProps } from '../types'
+import { useSettings } from '../../../../config'
+import { useRoadPosition } from '../../../road3d'
+import { ObjectProps } from '../../types'
 
 import './sprite.css'
 

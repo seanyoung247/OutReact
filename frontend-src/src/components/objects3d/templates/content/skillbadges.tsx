@@ -3,11 +3,11 @@ import { RoadBadge } from "./roadbadge"
 
 import "./skillbadges.css"
 
-type Props = {
+type SkillBadgesProps = {
     badges: {title:string, name:string, value:string}[];
 }
 
-export const SkillBadges = ({badges}:Props) => {
+export const SkillBadges = ({badges}:SkillBadgesProps) => {
     return (
         <div className="skill-badges">
             { badges.map((item, i) => (

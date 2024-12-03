@@ -1,5 +1,5 @@
 
-import { RoadObjectsDesc } from "./components/objects3d/templates/registry";
+import { ContentObjectDesc, RoadObjectDesc } from "./components/objects3d/templates/registry";
 import { formatRoad } from "./components/road3d";
 
 const roadSegments = [
@@ -136,7 +136,7 @@ const roadSegments = [
     { curve: 0 }
 ]
 
-const roadObjects:RoadObjectsDesc[] = [
+const roadObjects:RoadObjectDesc[] = [
     { type: "road-sign", props: {z:5, header: "Languages"}, 
         content: [
             {type: "skill-badges", props: { badges: [
@@ -175,6 +175,10 @@ const roadObjects:RoadObjectsDesc[] = [
             "This sign is on a curve!"
         ]
     }
+]
+
+const contentObjects:ContentObjectDesc[] = [
+    { type: "road-badge", props: {name: "Test", value: "10"} }
 ]
 
 export const testRoad = formatRoad(100, roadSegments, roadObjects)

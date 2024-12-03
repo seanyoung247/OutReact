@@ -5,14 +5,14 @@ import { useSettings } from "../../config"
 
 import { ObjectSettings } from "./types";
 import { VisibleSegments } from "../road3d"
-import { RoadObjectsDesc} from "./templates/registry"
+import { RoadObjectDesc} from "./templates/registry"
 
 type Props = {
     segments: VisibleSegments[];   // Currently visible road segments
 }
 
 const getVisibleObjects = (segments: VisibleSegments[], settings:ObjectSettings) => {
-    const objects: RoadObjectsDesc[] = []
+    const objects: RoadObjectDesc[] = []
 
     // Iterate over visible road segments
     for (let i = 0; i < segments.length; i++) {
