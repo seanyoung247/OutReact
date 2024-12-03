@@ -3,6 +3,7 @@ import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
+import aliasResolver from 'eslint-import-resolver-alias';
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -16,6 +17,17 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+    },
+    settings: {
+      'import/resolver': {
+        alias: {
+          map: [
+            ['~', './src'], // Matches the Vite alias
+            ['@assets', './src/assets'],
+          ],
+          extensions: ['.js', '.jsx', '.ts', '.tsx'], // Supported extensions
+        },
+      },
     },
     rules: {
       ...reactHooks.configs.recommended.rules,

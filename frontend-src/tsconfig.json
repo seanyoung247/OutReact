@@ -1,4 +1,11 @@
 {
+  "compilerOptions": {
+    "baseUrl": "./", // Base directory for resolving paths
+    "paths": {
+      "~/*": ["src/*"], // Matches your alias
+      "@assets/*": ["src/assets/*"] // Matches your alias
+    }
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

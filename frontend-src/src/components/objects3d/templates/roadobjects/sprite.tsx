@@ -1,5 +1,5 @@
 
-import { useSettings } from '../../../../config'
+import { useSettings } from '~/config'
 import { useRoadPosition } from '../../../road3d'
 import { ObjectProps } from '../../types'
 

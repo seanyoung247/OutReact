@@ -1,5 +1,5 @@
 
-import { registerComponent, createRegistry, RegistryTypes } from '../../../utilities/registry'
+import { registerComponent, createRegistry, RegistryTypes } from '~/utilities/registry'
 
 // Road Objects to be registered:
 import { RoadSign } from './roadobjects/roadsign'

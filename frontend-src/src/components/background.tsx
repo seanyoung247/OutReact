@@ -1,7 +1,7 @@
 
 import { useRoadPosition } from './road3d'
 
-import Img from '../assets/testbackground.png'
+import Img from '@assets/testbackground.png'
 import './background.css'
 
 type Props = {

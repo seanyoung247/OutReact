@@ -1,6 +1,6 @@
 
-import { /*useSVGDef,*/ useUpdateSVGDef } from "../../../../utilities/svglibrary"
-import { cl } from "../../../../utilities/css"
+import { /*useSVGDef,*/ useUpdateSVGDef } from "~/utilities/svglibrary"
+import { cl } from "~/utilities/css"
 
 import './gantry.css'
 

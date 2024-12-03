@@ -1,8 +1,8 @@
 
-import { percent } from '../../utilities/math'
+import { percent } from '~/utilities/math'
 import { RoadSettings } from './types'
 
-import { useUpdateSVGDef } from '../../utilities/svglibrary'
+import { useUpdateSVGDef } from '~/utilities/svglibrary'
 
 import './roadtexture.css'
 

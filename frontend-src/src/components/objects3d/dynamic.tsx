@@ -1,7 +1,7 @@
 
 import { objectsRegistry, ContentList, ObjectDesc} from "./templates/registry"
 
-import { useSettings } from "../../config"
+import { useSettings } from "~/config"
 
 const renderContent = (content: ContentList, depth: number, maxDepth: number) => {
     if (depth >= maxDepth) {

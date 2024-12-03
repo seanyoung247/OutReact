@@ -1,5 +1,5 @@
 
-import { useSettings } from '../config'
+import { useSettings } from '~/config'
 import './view3d.css'
 
 type Props = {

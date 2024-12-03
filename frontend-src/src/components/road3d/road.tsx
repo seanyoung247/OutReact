@@ -6,7 +6,7 @@ import { RoadTexture } from './roadtexture'
 
 import { useRoadPosition } from './hooks'
 
-import { useSettings } from "../../config"
+import { useSettings } from "~/config"
 
 import './road.css'
 

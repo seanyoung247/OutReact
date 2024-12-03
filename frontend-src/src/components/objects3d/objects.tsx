@@ -1,7 +1,7 @@
 
 import { DynamicObject } from "./dynamic";
 
-import { useSettings } from "../../config"
+import { useSettings } from "~/config"
 
 import { ObjectSettings } from "./types";
 import { VisibleSegments } from "../road3d"

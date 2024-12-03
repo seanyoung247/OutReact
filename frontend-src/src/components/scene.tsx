@@ -8,7 +8,7 @@ import { Car } from './objects3d/car'
 import { useFPS } from '../hooks/fps'
 // Types
 import { RoadDescriptor } from "./road3d";
-import { useSettings } from '../config'
+import { useSettings } from '~/config'
 
 import "./scene.css"
 
