@@ -5,7 +5,7 @@ import { View3D } from './view3d'
 import { Road } from './road3d'
 import { Car } from './objects3d/car'
 // Utils
-import { useFPS } from '../hooks/fps'
+import { useFPS } from '~/hooks/fps'
 // Types
 import { RoadDescriptor } from "./road3d";
 import { useSettings } from '~/config'

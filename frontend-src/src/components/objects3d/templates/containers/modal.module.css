@@ -1,0 +1,50 @@
+
+html:has(.backdrop) {
+    overflow: hidden;
+}
+
+.backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background-color: #00000099;
+    backdrop-filter: blur(10px);
+}
+
+.modal {
+    position: relative;
+    width: 500px;
+    max-width: 100%;
+    border-radius: 15px;
+    background-color: aliceblue;
+}
+
+.modal h3 {
+    text-align: center;
+    border-bottom: 1px solid lightgrey;
+    font-size: large;
+    padding: 10px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 0; right: 0;
+    border: none;
+    border-radius: 0 15px 0 0;
+    background: none;
+    font-size: large;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-left: 1px solid lightgrey;
+}
+
+.closeBtn:hover {
+    background: lightcoral;
+}
+
+.content {
+    padding: 10px;
+}
