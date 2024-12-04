@@ -8,12 +8,15 @@ type TypeMap<T extends Templates> = {
     [K in keyof T]: T[K]['props']
 }
 
-// Generates a type that enforces prop and component types for named components
+// Generates a type that enforces prop and component types for a component registry
+type RegistryProps<T> = Omit<T, 'children'>
 export type RegistryTypes<T extends Templates, C = never> = {
 
     [K in keyof T]: {
         type: K;
-        props: T[K]['props'];
+        props: RegistryProps<T[K]['props']> extends Record<string, never>
+            ? Partial<RegistryProps<T[K]['props']>>
+            : RegistryProps<T[K]['props']>;
 
     } & (
         T[K]['props'] extends { children: React.ReactNode }     // Requires children
