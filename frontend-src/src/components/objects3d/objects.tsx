@@ -4,12 +4,10 @@ import { DynamicObject } from "./dynamic";
 import { useSettings } from "~/config"
 
 import { ObjectSettings } from "./types";
-import { VisibleSegments } from "../road3d"
+import { VisibleSegments, RoadDescriptor } from "../road3d"
 import { RoadObjectDesc} from "./templates/registry"
+import { useContainers } from "./containers";
 
-type Props = {
-    segments: VisibleSegments[];   // Currently visible road segments
-}
 
 const getVisibleObjects = (segments: VisibleSegments[], settings:ObjectSettings) => {
     const objects: RoadObjectDesc[] = []
@@ -35,10 +33,13 @@ const getVisibleObjects = (segments: VisibleSegments[], settings:ObjectSettings)
     return objects
 }
 
+type RoadObjectProps = {
+    segments: VisibleSegments[];   // Currently visible road segments
+}
 /*
  * Manages visible road objects, info panels and decorations
  */
-export const RoadObjects = ({segments}: Props) => {
+export const RoadObjects = ({segments}: RoadObjectProps) => {
     const {settings:{objects:settings}} = useSettings()
     const objs = getVisibleObjects(segments, settings)
 
@@ -46,6 +47,20 @@ export const RoadObjects = ({segments}: Props) => {
         objs.map((obj, i) => (
             <DynamicObject key={i} obj={obj} depth={0}/>
         ))
+    )
+}
+
+type ContainersProps = {
+    road: RoadDescriptor;
+}
+
+export const Containers = ({road}: ContainersProps) => {
+    const containers = useContainers(road.containers)
+    
+    return (    
+        <div>
+
+        </div>
     )
 }
 

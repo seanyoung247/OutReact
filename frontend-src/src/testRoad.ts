@@ -1,5 +1,6 @@
 
-import { ContainerDesc, RoadObjectDesc } from "./components/objects3d/templates/registry";
+import { ContainerRegistry } from "./components/objects3d/containers";
+import { RoadObjectDesc } from "./components/objects3d/templates/registry";
 import { formatRoad } from "./components/road3d";
 
 const roadSegments = [
@@ -177,7 +178,7 @@ const roadObjects:RoadObjectDesc[] = [
     }
 ]
 
-const contentObjects: Record<string, ContainerDesc> = {
+const contentObjects: ContainerRegistry = {
     "test-modal": { type: "modal", props: {header: "Test"},
         content: [
             "Test Content"

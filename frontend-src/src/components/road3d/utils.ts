@@ -1,6 +1,7 @@
 
 import { ObjectProps } from "../objects3d";
-import { ContainerDesc, RoadObjectDesc } from "../objects3d/templates/registry";
+import { ContainerRegistry } from "../objects3d/containers";
+import { RoadObjectDesc } from "../objects3d/templates/registry";
 import { RoadDescriptor, RoadLayout } from "./types";
 
 
@@ -12,7 +13,7 @@ export const formatRoad = (
     length: number,
     road: RoadLayout[],
     objects: RoadObjectDesc[],
-    containers: Record<string, ContainerDesc>
+    containers: ContainerRegistry
 ): RoadDescriptor => {
     // Generate absolute x offset from cummulative curve
     let x = 0;

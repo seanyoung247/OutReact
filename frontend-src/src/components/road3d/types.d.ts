@@ -1,4 +1,5 @@
 
+import { ContainerRegistry } from "../objects3d/containers";
 import { ContainerDesc, RoadObjectDesc } from "../objects3d/templates/registry"
 
 export type RoadSegmentDescriptor = {
@@ -41,6 +42,6 @@ export type VisibleSegments = {
 export type RoadDescriptor = {
     length: number;
     segments: RoadLayout[];
-    containers: Record<string, ContainerDesc>;
+    containers: ContainerRegistry;
     // TO DO: More here as needed
 }
