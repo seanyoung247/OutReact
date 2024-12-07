@@ -21,10 +21,10 @@ const renderContent = (content: ContentList, depth: number, maxDepth: number) =>
 
 type Props = {
     obj: ObjectDesc;
-    depth: number;
+    depth?: number;
 }
 
-export const DynamicObject = ({ obj, depth }: Props) => {
+export const DynamicObject = ({ obj, depth=0 }: Props) => {
     const {settings:{objects}} = useSettings()
     const Component = objectsRegistry(obj.type)
 
