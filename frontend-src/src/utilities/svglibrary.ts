@@ -1,13 +1,25 @@
 
 import { useEffect } from "react"
 
+
+const SVGElementID = "SVGLibrary-def-store"
 const SVGLibrary = (() => {
 
     const svgNamespace = 'http://www.w3.org/2000/svg'
     const rootSVG = document.createElementNS(svgNamespace, 'svg')
     const defs = document.createElementNS(svgNamespace, 'defs')
 
+    const oldEl = document.getElementById(SVGElementID)
+    if (oldEl) document.removeChild(oldEl)
+
     rootSVG.appendChild(defs)
+    rootSVG.id = SVGElementID
+    rootSVG.ariaHidden = "true"
+    rootSVG.style.cssText = `
+        position: absolute;
+        height: 0;
+        width: 0;
+    `
     document.body.prepend(rootSVG)
 
     const definitions = new Map<string, Element>();
