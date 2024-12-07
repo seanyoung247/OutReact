@@ -2,9 +2,9 @@
 import { DynamicObject } from "./dynamic";
 import { useSettings } from "~/config"
 import { ObjectSettings } from "./types";
-import { VisibleSegments, RoadDescriptor } from "../road3d"
+import { VisibleSegments } from "../road3d"
 import { RoadObjectDesc} from "./templates/registry"
-import { useContainers } from "./containers";
+import { ContainerRegistry, useContainers } from "./containers";
 import { iterate } from "~/utilities/react";
 
 
@@ -35,8 +35,11 @@ const getVisibleObjects = (segments: VisibleSegments[], settings:ObjectSettings)
 type RoadObjectProps = {
     segments: VisibleSegments[];   // Currently visible road segments
 }
-/*
+/**
  * Manages visible road objects, info panels and decorations
+ * @param {{segments: VisibleSegments[]}} props -
+ *          Currently visible road segments descriptors.
+ * @returns Rendered react elements
  */
 export const RoadObjects = ({segments}: RoadObjectProps) => {
     const {settings:{objects:settings}} = useSettings()
@@ -50,15 +53,21 @@ export const RoadObjects = ({segments}: RoadObjectProps) => {
 }
 
 type ContainersProps = {
-    road: RoadDescriptor;
+    containers: ContainerRegistry;
 }
 
-export const Containers = ({road}: ContainersProps) => {
-    const containers = useContainers(road.containers)
-    const visible = containers.getVisible()
+/**
+ * 
+ * @param {{containers: ContainerRegistry}} props -
+ *          Registered containers that can be instantiated
+ * @returns Rendered react elements
+ */
+export const Containers = ({containers}: ContainersProps) => {
+    const registry = useContainers(containers)
+    const visible = registry.getVisible()
 
     return (iterate(visible, ([key, obj]) => {
-        obj.props.close = () => containers.hide(key)
+        obj.props.close = () => registry.hide(key)
         return <DynamicObject key={key} obj={obj} />
     }))
 }

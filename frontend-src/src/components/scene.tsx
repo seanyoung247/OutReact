@@ -27,7 +27,7 @@ export const Scene = ({road}: Props) => {
     return (
         <>
             <button className="testbtn" onClick={toggleModal}>TEST</button>
-            <Containers road={road} />
+            <Containers containers={road.containers} />
             
             {settings.showFPS && <div className="framerate">{ fps }</div>}
             <Background horizon={settings.view.horizon}>

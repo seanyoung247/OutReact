@@ -97,7 +97,7 @@ const containers = (()=>{
 /**
  * Takes a registry of container components mapped to ids and returns a
  * list of currently visible containers
- * @param registry ContainerRegistry of containers
+ * @param {ContainerRegistry} registry Registry of containers
  * @returns Array of ContainerDesc of visible containers
  */
 export const useContainers = (registry: ContainerRegistry) => {
@@ -114,7 +114,7 @@ export const useContainers = (registry: ContainerRegistry) => {
 
 /**
  * Provides a function to show a named component
- * @param id Component string id
+ * @param {string} id Component string id
  * @returns trigger function
  */
 export const useShowContainer = (id: string) => (
@@ -122,7 +122,7 @@ export const useShowContainer = (id: string) => (
 )
 /**
  * Provides a function to hide a named component
- * @param id Component string id
+ * @param {string} id Component string id
  * @returns trigger function
  */
 export const useHideContainer = (id: string) => (
@@ -131,7 +131,7 @@ export const useHideContainer = (id: string) => (
 /**
  * Provides a function to toggle a named component.
  * Shows component if hidden, hides it if visible.
- * @param id Component string id
+ * @param {string} id Component string id
  * @returns trigger function
  */
 export const useToggleContainer = (id: string) => (
