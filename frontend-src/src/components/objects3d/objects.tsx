@@ -1,12 +1,11 @@
 
 import { DynamicObject } from "./dynamic";
-
 import { useSettings } from "~/config"
-
 import { ObjectSettings } from "./types";
 import { VisibleSegments, RoadDescriptor } from "../road3d"
 import { RoadObjectDesc} from "./templates/registry"
 import { useContainers } from "./containers";
+import { iterate } from "~/utilities/react";
 
 
 const getVisibleObjects = (segments: VisibleSegments[], settings:ObjectSettings) => {
@@ -45,7 +44,7 @@ export const RoadObjects = ({segments}: RoadObjectProps) => {
 
     return (
         objs.map((obj, i) => (
-            <DynamicObject key={i} obj={obj} depth={0}/>
+            <DynamicObject key={i} obj={obj} />
         ))
     )
 }
@@ -56,12 +55,9 @@ type ContainersProps = {
 
 export const Containers = ({road}: ContainersProps) => {
     const containers = useContainers(road.containers)
-    
-    return (    
-        <div>
-
-        </div>
-    )
+    return (iterate(containers, ([key,value]) => (
+        <DynamicObject key={key} obj={value} />
+    )))
 }
 
 /*

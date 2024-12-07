@@ -11,6 +11,8 @@ import { RoadDescriptor } from "./road3d";
 import { useSettings } from '~/config'
 
 import "./scene.css"
+import { useToggleContainer } from './objects3d/containers'
+import { Containers } from './objects3d/objects'
 
 type Props = {
     road: RoadDescriptor
@@ -20,8 +22,13 @@ export const Scene = ({road}: Props) => {
     const {settings} = useSettings()
     const fps = useFPS()
 
+    const toggleModal = useToggleContainer('test-modal')
+
     return (
         <>
+            <button className="testbtn" onClick={toggleModal}>TEST</button>
+            <Containers road={road} />
+            
             {settings.showFPS && <div className="framerate">{ fps }</div>}
             <Background horizon={settings.view.horizon}>
                 <View3D>
