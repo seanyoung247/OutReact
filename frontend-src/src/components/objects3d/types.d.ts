@@ -10,3 +10,7 @@ export type ObjectProps = {
     x?: number;
     children?: React.ReactNode;
 }
+
+export type containerProps = {
+    close?: ()=>void;
+}

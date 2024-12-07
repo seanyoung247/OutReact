@@ -3,6 +3,7 @@ import { objectsRegistry, ContentList, ObjectDesc} from "./templates/registry"
 
 import { useSettings } from "~/config"
 
+
 const renderContent = (content: ContentList, depth: number, maxDepth: number) => {
     if (depth >= maxDepth) {
         return null
@@ -24,7 +25,7 @@ type Props = {
     depth?: number;
 }
 
-export const DynamicObject = ({ obj, depth=0 }: Props) => {
+export const DynamicObject = ({ obj, depth = 0 }: Props) => {
     const {settings:{objects}} = useSettings()
     const Component = objectsRegistry(obj.type)
 

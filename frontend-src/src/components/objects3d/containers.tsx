@@ -109,7 +109,7 @@ export const useContainers = (registry: ContainerRegistry) => {
     // Registry is stable and only set once. Effect should only run on instantiation
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    return containers.getVisible()
+    return containers
 }
 
 /**

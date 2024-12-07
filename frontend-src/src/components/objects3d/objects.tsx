@@ -55,9 +55,12 @@ type ContainersProps = {
 
 export const Containers = ({road}: ContainersProps) => {
     const containers = useContainers(road.containers)
-    return (iterate(containers, ([key,value]) => (
-        <DynamicObject key={key} obj={value} />
-    )))
+    const visible = containers.getVisible()
+
+    return (iterate(visible, ([key, obj]) => {
+        obj.props.close = () => containers.hide(key)
+        return <DynamicObject key={key} obj={obj} />
+    }))
 }
 
 /*
