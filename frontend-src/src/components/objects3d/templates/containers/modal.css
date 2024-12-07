@@ -1,9 +1,10 @@
 
-html:has(.backdrop) {
+/* Prevents window scroll when modal is open. */
+html:has( .modal-backdrop) {
     overflow: hidden;
 }
 
-.backdrop {
+.modal-backdrop {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +21,7 @@ html:has(.backdrop) {
     max-width: 100%;
     border-radius: 15px;
     background-color: aliceblue;
+    box-shadow: 0 0 15px black;
 }
 
 .modal h3 {
@@ -29,7 +31,7 @@ html:has(.backdrop) {
     padding: 10px;
 }
 
-.closeBtn {
+.modal .closeBtn {
     position: absolute;
     top: 0; right: 0;
     border: none;
@@ -41,10 +43,10 @@ html:has(.backdrop) {
     border-left: 1px solid lightgrey;
 }
 
-.closeBtn:hover {
+.modal .closeBtn:hover {
     background: lightcoral;
 }
 
-.content {
+.modal .content {
     padding: 10px;
 }

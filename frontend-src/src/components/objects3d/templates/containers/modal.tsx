@@ -1,5 +1,6 @@
 
-import Styles from './modal.module.css'
+import './modal.css'
+
 
 type ModalProps = {
     header: string;
@@ -7,19 +8,22 @@ type ModalProps = {
     children?: React.ReactNode
 }
 
-export const Modal = ({header, close, children}:ModalProps) => (
-    <div className={ Styles.backdrop }>
-        <div className={ Styles.modal }>
+export const Modal = ({header, close, children}:ModalProps) => {
+    
+    return (
+        <div className="modal-backdrop" onClick={close}>
+            <div className="modal" onClick={e=>e.stopPropagation()}>
 
-            <h3>{ header }</h3>
-            <button className={ Styles.closeBtn } onClick={close}>
-                &times;
-            </button>
+                <h3>{ header }</h3>
+                <button className="closeBtn" onClick={close}>
+                    &times;
+                </button>
 
-            <div className={ Styles.content }>
-               { children }
+                <div className="content">
+                { children }
+                </div>
+
             </div>
-
         </div>
-    </div>
-)
+    )
+}
