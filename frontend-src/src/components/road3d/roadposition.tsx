@@ -13,28 +13,28 @@ type Props = {
 
 export type ScrollStatus = {
     camZ: number,
+    segZ: number,
     camX: number,
 }
 
-export const RoadPositionContext = createContext({camZ:0, camX:0,})
+export const RoadPositionContext = createContext({camZ:0, segZ:0, camX:0,})
 
 export const RoadPosition = ({children, road}:Props) => {
-
     const {settings:{scroll:{height}}} = useSettings()
-
     const scroll = useScrollState()
+    // Z Position
     const camZ = (scroll.progress.y / 100) * road.length
-    const z = Math.floor(camZ)
-    const cX = road.segments[z % road.segments.length].x ?? 0
-    const pX = ((camZ > 1) ? road.segments[(z - 1) % road.segments.length].x : 0) ?? 0
-    const camX = tween(pX, cX, camZ - z) * 10
+    const segZ = Math.floor(camZ) % road.segments.length
+    // X Position
+    const cX = road.segments[segZ].x ?? 0
+    const pX = ((camZ > 1) ? road.segments[(segZ - 1)].x : 0) ?? 0
+    const camX = tween(pX, cX, camZ - segZ) * 10
 
     return (
-        <RoadPositionContext.Provider value={{camZ, camX}}>
+        <RoadPositionContext.Provider value={{camZ, segZ, camX}}>
             <div style={{height}}>
                 { children }
             </div>
         </RoadPositionContext.Provider>
     )
-
 }

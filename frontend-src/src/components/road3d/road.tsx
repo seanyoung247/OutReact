@@ -33,14 +33,13 @@ const getSegments = (start: number, road:RoadLayout[], settings:RoadSettings) =>
 export const Road = ({road}:Props) => {
 
     const {settings:{road:settings}} = useSettings()
-    const {camZ} = useRoadPosition()
+    const {camZ, segZ} = useRoadPosition()
 
-    const z = Math.floor(camZ) % road.segments.length
-    const segments = getSegments(z, road.segments, settings)
+    const segments = getSegments(segZ, road.segments, settings)
     
     const roadStyle = {
-        '--bZ': z,
-        '--bC': road.segments[z].curve,
+        '--bZ': segZ,
+        '--bC': road.segments[segZ].curve,
         '--camZ': camZ % road.segments.length,
         '--scale': settings.scale,
         '--sW': settings.width,
@@ -53,7 +52,7 @@ export const Road = ({road}:Props) => {
         <div className="road" style={roadStyle}>
             <RoadObjects segments={segments} />
             { segments.map(v => (
-                <div key={ v.z - z } className='road-segment'
+                <div key={ v.z - segZ } className='road-segment'
                     style={ { '--myZ': v.z, '--bX': v.bX, '--tX': v.tX } }>
 
                     <RoadTexture { ...settings } />

@@ -9,7 +9,7 @@ type ModalProps = {
 }
 
 export const Modal = ({header, close, children}:ModalProps) => {
-    
+
     return (
         <div className="modal-backdrop" onClick={close}>
             <div className="modal" onClick={e=>e.stopPropagation()}>
@@ -20,7 +20,7 @@ export const Modal = ({header, close, children}:ModalProps) => {
                 </button>
 
                 <div className="content">
-                { children }
+                    { children }
                 </div>
 
             </div>
