@@ -41,6 +41,7 @@ html:has( .modal-backdrop) {
     font-weight: bold;
     padding: 10px 15px;
     border-left: 1px solid lightgrey;
+    user-select: none;
 }
 
 .modal .closeBtn:hover {

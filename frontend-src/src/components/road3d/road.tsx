@@ -15,7 +15,7 @@ type Props = {
 }
 
 const getSegments = (start: number, road:RoadLayout[], settings:RoadSettings) => {
-    const segments:VisibleSegments[] = []
+    const segments: VisibleSegments[] = []
 
     let topX = 0, baseX = 0
     const last = start + settings.count
@@ -32,9 +32,8 @@ const getSegments = (start: number, road:RoadLayout[], settings:RoadSettings) =>
 
 export const Road = ({road}:Props) => {
 
-    const {settings:{road:settings}} = useSettings()
     const {camZ, segZ} = useRoadPosition()
-
+    const {settings:{road:settings}} = useSettings()
     const segments = getSegments(segZ, road.segments, settings)
     
     const roadStyle = {
