@@ -41,7 +41,7 @@ const containers = (()=>{
     const assertInitialised = () => {
         if (!isInitialised()) {
             throw new Error (
-                "Container registry has not been initialized. Ensure you have called `useContainers` before using other hooks."
+                "Container registry has not been initialized."
             )
         }
     }
@@ -51,8 +51,8 @@ const containers = (()=>{
     }
 
     const get = (key: string) => {
+        assertInitialised()
         const container = myContainers.get(key)
-        console.log(myContainers.has(key))
         if (!container) {
             throw new Error(`Requested container ${key} doesn't exist!`)
         }
@@ -60,14 +60,13 @@ const containers = (()=>{
     }
 
     /*
-     * Visible Contianers
+     * Visible Containers
      */
     const getVisible = () => visible
 
     const show = (id: string) => {
-        const container = get(id)
         if (!visible.has(id)) {
-            visible.set(id, container)
+            visible.set(id, get(id))
             notify()
         }
     }
