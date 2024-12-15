@@ -25,6 +25,10 @@ export const repeat = (count:number, effect:RepeatCallback) => {
 type IterCallback<T> = (value: T, index?: number) => React.ReactElement
 /**
  * Calls effect on each element of an iterable
+ * 
+ * @param iterable - Iterable type
+ * @param effect - function to call on each element
+ * @returns - An array of JSX elements
  */
 export const iterate = <T>(
     iterable: Iterable<T>,
