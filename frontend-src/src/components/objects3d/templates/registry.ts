@@ -26,8 +26,17 @@ const contentRegistry = {
 }
 // Object Registry types:
 // Content Types
+type ContentRegistry = {
+    [K in keyof typeof contentRegistry]: {
+        component: (typeof contentRegistry)[K]['component'];
+        props: (typeof contentRegistry)[K]['props'] & { 
+            trigger?: string 
+        };
+    };
+}
 export type ContentList = Array<string | ContentDesc>
-export type ContentDesc = RegistryTypes<typeof contentRegistry, ContentList>
+export type ContentDesc = RegistryTypes<ContentRegistry, ContentList>
+// Container Types
 export type ContainerDesc = RegistryTypes<typeof containerRegistry, ContentList>
 // Road object Types
 export type RoadObjectDesc = RegistryTypes<typeof objectRegistry, ContentList>
