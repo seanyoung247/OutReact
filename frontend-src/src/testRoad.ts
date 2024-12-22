@@ -78,7 +78,7 @@ const roadObjects:RoadObjectDesc[] = [
             "This sign is even further away!"
         ]
     },
-    { type: "road-sign", props: {z:55, header: "Curvy!"},
+    { type: "road-sign", props: {z:60, header: "Curvy!"},
         content: [
             "This sign is on a curve!"
         ]
@@ -95,4 +95,8 @@ const contentObjects: ContainerRegistry = {
 
 // const animations = []
 
-export const testRoad = formatRoad(120, roadSegments, roadObjects, contentObjects)
+export const testRoad = formatRoad(120, 
+    roadSegments, 
+    roadObjects, 
+    contentObjects
+)
