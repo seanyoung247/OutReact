@@ -13,17 +13,17 @@ import { SkillBadges } from './content/skillbadges'
 // Road positioned components
 const objectRegistry = {
     "road-sign": registerComponent(RoadSign),
-}
+} as const
 // Content Container components:
 const containerRegistry = {
     "modal": registerComponent(Modal),
-}
+} as const 
 // Content components:
 const contentRegistry = {
     "skill-list": registerComponent(SkillList),
     "road-badge": registerComponent(RoadBadge),
     "skill-badges": registerComponent(SkillBadges),
-}
+} as const
 // Object Registry types:
 // Content Types
 type ContentRegistry = {

@@ -65,6 +65,7 @@ const containers = (()=>{
     const getVisible = () => visible
 
     const show = (id: string) => {
+        assertInitialised()
         if (!visible.has(id)) {
             visible.set(id, get(id))
             notify()
@@ -72,6 +73,7 @@ const containers = (()=>{
     }
 
     const hide = (id: string) => {
+        assertInitialised()
         if (visible.delete(id)) {
             notify()
         }
@@ -111,28 +113,22 @@ export const useContainers = (registry: ContainerRegistry) => {
     return containers
 }
 
+///// UTILITIES
+export const handlers = {
+    'show': (id:string) => () => containers.show(id),
+    'hide': (id:string) => () => containers.hide(id),
+    'toggle': (id:string) => () => containers.toggle(id)
+} as const
+type Action = keyof typeof handlers
+
 /**
- * Provides a function to show a named component
- * @param {string} id Component string id
- * @returns trigger function
+ * Returns a function that performs a designated action on a component
+ * @param {Action} action - action id
+ * @param {string} id - Component string id
+ * @returns Function that performs the given action on component with id
  */
-export const useShowContainer = (id: string) => (
-    () => containers.show(id)
-)
-/**
- * Provides a function to hide a named component
- * @param {string} id Component string id
- * @returns trigger function
- */
-export const useHideContainer = (id: string) => (
-    () => containers.hide(id)
-)
-/**
- * Provides a function to toggle a named component.
- * Shows component if hidden, hides it if visible.
- * @param {string} id Component string id
- * @returns trigger function
- */
-export const useToggleContainer = (id: string) => (
-    () => containers.toggle(id)
-)
+export const getContainerHandler = (action: Action, id: string) => {
+    const handler = handlers[action]
+    if (!handler) throw new Error(`Unknown action: ${action}`);
+    return handler(id)
+}

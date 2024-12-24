@@ -2,6 +2,7 @@
 import { ContainerRegistry } from "./components/objects3d/containers";
 import { RoadObjectDesc } from "./components/objects3d/templates/registry";
 import { formatRoad } from "./components/road3d";
+import { TargetRegistry } from "./utilities/registry";
 
 const roadSegments = [
     { curve: 0 }, { curve: 0 }, { curve: 0 }, { curve: 0 }, { curve: 0 },
@@ -93,10 +94,15 @@ const contentObjects: ContainerRegistry = {
     }
 }
 
+const triggers: TargetRegistry = {
+    'test-trigger': { type: 'container-toggle', target: "test-modal" },
+}
+
 // const animations = []
 
 export const testRoad = formatRoad(120, 
     roadSegments, 
     roadObjects, 
-    contentObjects
+    contentObjects,
+    triggers,
 )

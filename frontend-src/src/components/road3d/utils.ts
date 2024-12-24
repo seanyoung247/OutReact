@@ -3,6 +3,7 @@ import { ObjectProps } from "../objects3d";
 import { ContainerRegistry } from "../objects3d/containers";
 import { RoadObjectDesc } from "../objects3d/templates/registry";
 import { RoadDescriptor, RoadLayout } from "./types";
+import { TargetRegistry } from "~/utilities/registry";
 
 
 const isZPositioned = (z:number, length:number) => (
@@ -13,7 +14,8 @@ export const formatRoad = (
     length: number,
     road: RoadLayout[],
     objects: RoadObjectDesc[],
-    containers: ContainerRegistry
+    containers: ContainerRegistry,
+    triggers: TargetRegistry
 ): RoadDescriptor => {
     // Generate absolute x offset from cummulative curve
     let x = 0;
@@ -25,7 +27,7 @@ export const formatRoad = (
         const props = v.props as ObjectProps
         const z = Math.floor(props.z)
 
-        if (isZPositioned(props.z, road.length)) {
+        if ( isZPositioned(props.z, road.length) ) {
             if (!segments[z].roadObjects) segments[props.z].roadObjects = []
             segments[props.z].roadObjects?.push(v)
         } else {
@@ -33,5 +35,5 @@ export const formatRoad = (
         }
     })
 
-    return { length, segments, containers }
+    return { length, segments, containers, triggers }
 }

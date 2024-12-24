@@ -1,6 +1,7 @@
 
 import { ContainerRegistry } from "../objects3d/containers";
-import { ContainerDesc, RoadObjectDesc } from "../objects3d/templates/registry"
+import { ContainerDesc, RoadObjectDesc } from "../objects3d/templates/registry";
+import { TargetRegistry } from "~/utilities/registry";
 
 export type RoadSegmentDescriptor = {
     curve: number;
@@ -43,5 +44,6 @@ export type RoadDescriptor = {
     length: number;
     segments: RoadLayout[];
     containers: ContainerRegistry;
+    triggers: TargetRegistry;
     // TO DO: More here as needed
 }
