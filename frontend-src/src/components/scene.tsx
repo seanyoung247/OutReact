@@ -1,11 +1,11 @@
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 // Components
 import { Background } from './background'
 import { View3D } from './view3d'
 import { Road } from './road3d'
 import { Car } from './objects3d/car'
-import { getContainerHandler, Containers } from './objects3d'
+import { /*getContainerHandler,*/ Containers } from './objects3d'
 // Utils
 import { useFPS } from '~/hooks/fps'
 import { useSettings } from '~/config'
@@ -21,16 +21,21 @@ type Props = {
 }
 
 export const Scene = ({road}: Props) => {
+    const [isLoading, setLoading] = useState(true)
     const {settings} = useSettings()
     const fps = useFPS()
 
     useEffect(() => {
         if (road) {
             triggers.registerTargets(road.triggers)
+            setLoading(false)
         }
     }, [road])
 
-    const toggleModal = getContainerHandler('toggle', 'test-modal')
+    if (isLoading) return <div>Loading...</div>
+
+    // const toggleModal = getContainerHandler('toggle', 'test-modal')
+    const toggleModal = triggers.get('test-trigger')
 
     return (
         <>
