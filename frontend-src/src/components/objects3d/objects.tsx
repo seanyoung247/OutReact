@@ -57,7 +57,7 @@ type ContainersProps = {
 }
 
 /**
- * 
+ * Renders currently visible container objects
  * @param {{containers: ContainerRegistry}} props -
  *          Registered containers that can be instantiated
  * @returns Rendered react elements

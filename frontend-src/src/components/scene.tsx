@@ -34,12 +34,8 @@ export const Scene = ({road}: Props) => {
 
     if (isLoading) return <div>Loading...</div>
 
-    // const toggleModal = getContainerHandler('toggle', 'test-modal')
-    const toggleModal = triggers.get('test-trigger')
-
     return (
         <>
-            <button className="testbtn" onClick={ toggleModal }>TEST</button>
             <Containers containers={road.containers} />
             
             {settings.showFPS && <div className="framerate">{ fps }</div>}

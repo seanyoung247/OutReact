@@ -1,6 +1,5 @@
 
 import { objectsRegistry, ContentList, ObjectDesc} from "./templates/registry"
-
 import { useSettings } from "~/config"
 
 

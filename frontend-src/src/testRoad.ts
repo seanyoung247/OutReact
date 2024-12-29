@@ -53,7 +53,8 @@ const roadObjects:RoadObjectDesc[] = [
                 {title: "HTML/CSS", name: "Expert", value: "100"},
                 {title: "TypeScript", name: "Advanced", value: "80"},
                 {title: "Python", name: "Proficient", value: "65"},
-            ]}} 
+            ]}},
+            {type: "action-button", props: {trigger: "test-trigger"}}
         ]
     },
     { type: "road-sign", props: {z:7, header: "Frameworks"}, 
