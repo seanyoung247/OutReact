@@ -9,7 +9,7 @@ import { Modal } from './containers/modal'
 import { SkillList } from './content/skilllist'
 import { RoadBadge } from './content/roadbadge'
 import { SkillBadges } from './content/skillbadges'
-import { ActionButton } from './content/actionbutton'
+import { TriggerButton } from './content/triggerbutton'
 
 // Road positioned components
 const objectRegistry = {
@@ -24,7 +24,7 @@ const contentRegistry = {
     "skill-list": registerComponent(SkillList),
     "road-badge": registerComponent(RoadBadge),
     "skill-badges": registerComponent(SkillBadges),
-    "action-button": registerComponent(ActionButton),
+    "trigger-button": registerComponent(TriggerButton),
 } as const
 
 // Object Registry types:

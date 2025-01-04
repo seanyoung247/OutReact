@@ -1,0 +1,37 @@
+
+
+.trigger-button {
+    background: none;
+    border: none;
+}
+
+.default {
+    background: white;
+}
+
+.road-sign {
+    --sign-orange: #C89800;
+    background-color: var(--sign-orange);
+
+    align-self: flex-end;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-variant: small-caps;
+
+    cursor: pointer;
+    transition: 0.25s all;
+}
+
+.road-sign:hover {
+    translate: 0 -5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    background-color: #E1B119;
+}
+
+.road-sign:active {
+    translate: 0 0;
+    box-shadow: none;
+    transition: 0.1s all;
+}
+

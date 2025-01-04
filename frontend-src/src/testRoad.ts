@@ -54,7 +54,11 @@ const roadObjects:RoadObjectDesc[] = [
                 {title: "TypeScript", name: "Advanced", value: "80"},
                 {title: "Python", name: "Proficient", value: "65"},
             ]}},
-            {type: "action-button", props: {trigger: "test-trigger"}}
+            {type: "trigger-button", props: {
+                trigger: "show-skills1",
+                context: "road-sign",
+                text: "Read More >",
+            }}
         ]
     },
     { type: "road-sign", props: {z:7, header: "Frameworks"}, 
@@ -88,7 +92,7 @@ const roadObjects:RoadObjectDesc[] = [
 ]
 
 const contentObjects: ContainerRegistry = {
-    "test-modal": { type: "modal", props: {header: "Test"},
+    "skills1-modal": { type: "modal", props: {header: "Language Skills"},
         content: [
             "Test Content"
         ]
@@ -96,7 +100,7 @@ const contentObjects: ContainerRegistry = {
 }
 
 const triggers: TargetRegistry = {
-    'test-trigger': { type: 'container-toggle', target: "test-modal" },
+    'show-skills1': { type: 'container-toggle', target: "skills1-modal" },
 }
 
 // const animations = []
