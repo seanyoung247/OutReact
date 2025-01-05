@@ -5,25 +5,25 @@ import './modal.css'
 type ModalProps = {
     header: string;
     close?: ()=>void;
-    children?: React.ReactNode
+    children?: React.ReactNode;
+    className?: string;
 }
 
-export const Modal = ({header, close, children}:ModalProps) => {
+export const Modal = ({header, close, className="", children}:ModalProps) => (
 
-    return (
-        <div className="modal-backdrop" onClick={close}>
-            <div className="modal" onClick={e=>e.stopPropagation()}>
+    <div className={`modal-backdrop ${className}`} onClick={close}>
+        <div className="modal" onClick={e=>e.stopPropagation()}>
 
-                <h3>{ header }</h3>
-                <button className="closeBtn" onClick={close}>
-                    &times;
-                </button>
+            <h3>{ header }</h3>
+            <button className="closeBtn" onClick={close}>
+                &times;
+            </button>
 
-                <div className="content">
-                    { children }
-                </div>
-
+            <div className="content">
+                { children }
             </div>
+
         </div>
-    )
-}
+    </div>
+
+)

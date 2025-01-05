@@ -4,6 +4,19 @@ html:has( .modal-backdrop) {
     overflow: hidden;
 }
 
+/*
+ * Base Styles
+ */
+ :root {
+    --modal-bg: #00000099;
+    --modal-content-bg: aliceblue;
+    --modal-padding: 10px;
+    --modal-border-radius: 15px;
+    --modal-shadow: 0 0 15px black;
+    --modal-header-border: 1px solid lightgrey;
+    --modal-close-hover-bg: lightcoral;
+}
+
 .modal-backdrop {
     display: flex;
     justify-content: center;
@@ -11,7 +24,7 @@ html:has( .modal-backdrop) {
     position: fixed;
     inset: 0;
     z-index: 99;
-    background-color: #00000099;
+    background-color: var(--modal-bg);
     backdrop-filter: blur(10px);
 }
 
@@ -19,35 +32,35 @@ html:has( .modal-backdrop) {
     position: relative;
     width: 500px;
     max-width: 100%;
-    border-radius: 15px;
-    background-color: aliceblue;
-    box-shadow: 0 0 15px black;
+    border-radius: var(--modal-border-radius);
+    background-color: var(--modal-content-bg);
+    box-shadow: var(--modal-shadow);
 }
 
 .modal h3 {
     text-align: center;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: var(--modal-header-border);
     font-size: large;
-    padding: 10px;
+    padding: var(--modal-padding);
 }
 
 .modal .closeBtn {
     position: absolute;
     top: 0; right: 0;
     border: none;
-    border-radius: 0 15px 0 0;
+    border-radius: 0 var(--modal-border-radius) 0 0;
     background: none;
     font-size: large;
     font-weight: bold;
-    padding: 10px 15px;
-    border-left: 1px solid lightgrey;
+    padding: var(--modal-padding) var(--modal-border-radius);
+    border-left: var(--modal-header-border);
     user-select: none;
 }
 
 .modal .closeBtn:hover {
-    background: lightcoral;
+    background: var(--modal-close-hover-bg);
 }
 
 .modal .content {
-    padding: 10px;
+    padding: var(--modal-padding);
 }
