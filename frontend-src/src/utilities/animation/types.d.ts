@@ -1,9 +1,14 @@
 
+/*
+ * Animation Manager types
+ */
+
+
 /* 
  * Web API Animation types
  */
 interface AnimationKeyFrame {
-    [key: string]: string[]
+    [key: string]: (string | CSSNumberish)[]
 }
 
 type AnimationEffectTimingFillMode = "none" | "forwards" | "backwards" | "both" | "auto";

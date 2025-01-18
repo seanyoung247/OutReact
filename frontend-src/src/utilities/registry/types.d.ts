@@ -32,11 +32,12 @@ export type RegistryTypes<T extends Templates, C = never> = {
 /*
  * Manager Registry types
  */
-export type TargetDesc = {
+export type TargetDesc<TData = void> = {
     type: string;
     target: string;
+    data?: TData
 }
 export type TargetFunction = ()=>void
 export type TargetManager = (id:string)=>TargetFunction
 
-export type TargetRegistry = Record<string, TargetDesc>
+export type TargetRegistry<TData = void> = Record<string, TargetDesc<TData>>

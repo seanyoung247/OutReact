@@ -103,11 +103,17 @@ const triggers: TargetRegistry = {
     'show-skills1': { type: 'container-toggle', target: "skills1-modal" },
 }
 
-// const animations = []
+const animations: TargetRegistry<AnimationKeyFrame> = {
+    'start-anim': { type: 'settings', target: "view", data: {
+        perspective: [50, 4],
+        horizon: [500, 35]
+    }}, 
+}
 
 export const testRoad = formatRoad(120, 
     roadSegments, 
     roadObjects, 
     contentObjects,
     triggers,
+    animations,
 )

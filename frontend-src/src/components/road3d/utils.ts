@@ -15,7 +15,8 @@ export const formatRoad = (
     road: RoadLayout[],
     objects: RoadObjectDesc[],
     containers: ContainerRegistry,
-    triggers: TargetRegistry
+    triggers: TargetRegistry,
+    animations: TargetRegistry<AnimationKeyFrame>,
 ): RoadDescriptor => {
     // Generate absolute x offset from cummulative curve
     let x = 0;
@@ -35,5 +36,5 @@ export const formatRoad = (
         }
     })
 
-    return { length, segments, containers, triggers }
+    return { length, segments, containers, triggers, animations }
 }

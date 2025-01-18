@@ -1,7 +1,8 @@
 
 import { ManagerRegistry } from "../registry";
 
-export const animations = ManagerRegistry()
+
+export const animations = ManagerRegistry<AnimationKeyFrame>()
 
 
 

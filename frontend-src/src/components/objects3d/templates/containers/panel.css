@@ -1,0 +1,8 @@
+
+:root {
+    --panel-background: #000000BB;
+}
+
+.panel {
+    background: var(--panel-background);
+}

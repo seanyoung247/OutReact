@@ -1,21 +1,21 @@
 
 import { TargetDesc, TargetFunction, TargetManager, TargetRegistry } from "./types"
 
-export const ManagerRegistry = () => {
+export const ManagerRegistry = <TData = void>() => {
     
     const managers = new Map<string, TargetManager>()
-    const targets = new Map<string, TargetDesc>()
+    const targets = new Map<string, TargetDesc<TData>>()
 
     return {
         registerManager(id: string, manager: TargetManager) {
             managers.set(id, manager)
         },
 
-        registerTarget(id: string, target: TargetDesc) {
+        registerTarget(id: string, target: TargetDesc<TData>) {
             targets.set(id, target)
         },
 
-        registerTargets(registry: TargetRegistry) {
+        registerTargets(registry: TargetRegistry<TData>) {
             for (const [key, value] of Object.entries(registry)) {
                 this.registerTarget(key, value)
             }
